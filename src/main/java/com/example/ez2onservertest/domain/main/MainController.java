@@ -23,7 +23,7 @@ public class MainController {
         List<MusicDTO> allMusics = music.getAllMusics();
 
 
-        model.addAttribute("allMusic",allMusics);
+        model.addAttribute("allMusic", allMusics);
         return "main";
     }
 }

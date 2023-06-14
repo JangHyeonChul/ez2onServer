@@ -1,0 +1,11 @@
+:root {
+    --container-size: 1300px;
+    --header-height: 80px;
+    --theme-color-01: rgb(252, 251, 255);
+    --theme-color-02: rgb(238, 235, 255);
+    --theme-color-03: rgb(228, 223, 255);
+    --theme-color-04: rgb(213, 207, 255);
+    --theme-color-05: rgb(188, 180, 255);
+    --theme-color-06: rgb(176, 165, 255);
+
+}
