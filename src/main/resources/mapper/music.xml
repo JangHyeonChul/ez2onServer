@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.gamedb.ez2on.global.musicDB.MusicMapper">
+<mapper namespace="com.example.ez2onservertest.global.musicDB.MusicMapper">
 
     <select id="selectAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO">
         SELECT *
