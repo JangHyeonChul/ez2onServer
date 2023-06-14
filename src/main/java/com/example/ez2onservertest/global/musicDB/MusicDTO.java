@@ -5,7 +5,6 @@ import lombok.Data;
 @Data
 public class MusicDTO {
 
-    private int re_num;
     private String re_name;
     private String re_genre;
     private String re_bpm;
