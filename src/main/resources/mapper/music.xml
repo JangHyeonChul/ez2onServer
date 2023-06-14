@@ -5,7 +5,7 @@
 
 <mapper namespace="com.gamedb.ez2on.global.musicDB.MusicMapper">
 
-    <select id="selectAllMusics" resultType="com.gamedb.ez2on.global.musicDB.MusicDTO">
+    <select id="selectAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO">
         SELECT *
         FROM registry
     </select>
