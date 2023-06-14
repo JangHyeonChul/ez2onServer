@@ -37,10 +37,7 @@ li, ul {
     margin-bottom: 1rem;
 }
 
-.item-sumnail {
-    height: 130px;
-    width: 130px;
-}
+
 
 .rank-box {
     display: flex;

@@ -10,4 +10,10 @@
         FROM registry
     </select>
 
+    <select id="selectMusic" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" parameterType="int">
+        SELECT *
+        FROM registry
+        WHERE re_num = #{musicNumber}
+    </select>
+
 </mapper>

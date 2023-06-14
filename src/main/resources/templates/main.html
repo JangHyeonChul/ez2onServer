@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <title>ez2onlevel</title>
-</head>
+<head th:replace="/fragements/config"></head>
+
 <body>
 <div class="header">
 
@@ -63,7 +60,6 @@
 
     <div class="content container">
 
-        <th:block th:object="${allMusic}">
             <div class="content-item">
 
                 <div class="rank-box ">
@@ -126,7 +122,6 @@
 
             </div>
 
-        </th:block>
     </div>
 
 </div>

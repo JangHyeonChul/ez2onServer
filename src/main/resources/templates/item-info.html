@@ -1,0 +1,74 @@
+
+<th:block th:replace="/fragements/config"></th:block>
+
+
+<body>
+<div class="header">
+
+  <div class="header-nav container">
+    <h1>EZ2LEVEL</h1>
+    <ul>
+
+    </ul>
+
+  </div>
+
+  <div class="info-content container">
+
+    <div class="item-info">
+
+      <img class="item-sumnail" th:src="${music.getRe_sumnail()}" />
+      <div>
+        <ul class="item-text">
+          <li th:text="${music.getRe_author()}">장르 : Artcore</li>
+          <li>BPM : 195</li>
+          <li>작곡가 : ARForest</li>
+          <li>패턴타입 : 연타</li>
+          <li>수록곡 : EC2?</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="item-info">버튼별난이도</div>
+    <div class="item-info">키별 곡순위 4 KEY : 1등</div>
+
+    <div class="item-info">
+      <div class="comment">후반부 폭타가 정말 아름다운곡</div>
+    </div>
+
+    <div class="item-info comment-box">
+
+      <form>
+        <textarea></textarea>
+
+        <label id="comment-4key">4키</label>
+        <input id="comment-4key" type="radio" text="4키"/>
+
+        <label id="comment-5key">5키</label>
+        <input id="comment-5key" type="radio" text="5키"/>
+
+        <label id="comment-6key">6키</label>
+        <input id="comment-6key" type="radio" text="6키"/>
+
+        <label id="comment-8key">8키</label>
+        <input id="comment-8key" type="radio" text="8키"/>
+
+        <label id="comment-8key">난이도</label>
+        <input id="comment-8key" type="text" text="8키"/>
+
+        <button>제출</button>
+
+      </form>
+
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+</body>
+</html>

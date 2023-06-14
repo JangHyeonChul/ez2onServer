@@ -8,5 +8,6 @@ import java.util.List;
 public interface MusicMapper {
 
     List<MusicDTO> selectAllMusics();
+    MusicDTO selectMusic(int musicNumber);
 
 }

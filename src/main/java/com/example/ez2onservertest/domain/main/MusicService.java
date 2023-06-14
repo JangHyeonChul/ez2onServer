@@ -10,4 +10,5 @@ import java.util.List;
 public interface MusicService {
 
     List<MusicDTO> getAllMusics();
+    MusicDTO getMusic(int musicNumber);
 }
