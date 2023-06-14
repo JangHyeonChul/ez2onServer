@@ -5,8 +5,131 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <title>ez2onlevel</title>
 </head>
-</head>
 <body>
-<a th:text="${allMusic[0].getRe_sumnail()}"></a>
+<div class="header">
+
+    <div class="header-nav container">
+        <h1>EZ2LEVEL</h1>
+        <ul>
+
+
+
+        </ul>
+
+    </div>
+
+    <div class="subheader-nav container">
+        <div class="subheader-option">
+            <h4>버튼별난이도</h4>
+            <ul>
+                <li>4B</li>
+                <li>5B</li>
+                <li>6B</li>
+                <li>8B</li>
+            </ul>
+        </div>
+
+        <div class="subheader-option">
+            <h4>테마별난이도</h4>
+            <ul>
+                <li>EC2</li>
+                <li>AC</li>
+                <li>6B</li>
+                <li>8B</li>
+            </ul>
+        </div>
+
+        <div class="subheader-option">
+            <h4>공사중...</h4>
+            <ul>
+                <li>4B</li>
+                <li>5B</li>
+                <li>6B</li>
+                <li>8B</li>
+            </ul>
+        </div>
+
+        <div class="subheader-option">
+            <h4>공사중..</h4>
+            <ul>
+                <li>4B</li>
+                <li>5B</li>
+                <li>6B</li>
+                <li>8B</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="content container">
+
+        <th:block th:object="${allMusic}">
+            <div class="content-item">
+
+                <div class="rank-box ">
+                    <div class="item-box ranking">
+                        <h1>1위</h1>
+                        <a th:href="@{/music/1}" >
+                            <img class="item-sumnail" th:src="${allMusic[0].getRe_sumnail()}" /></a>
+                    </div>
+
+                    <div class="item-box ranking">
+                        <h1>2위</h1>
+                        <img class="item-sumnail"  th:src="${allMusic[1].getRe_sumnail()}" />
+                    </div>
+
+                    <div class="item-box ranking">
+                        <h1>3위</h1>
+                        <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="content-item">
+                <h1>1티어</h1>
+                <div class="tier-space">
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                </div>
+
+            </div>
+
+            <div class="content-item">
+                <h1>1티어</h1>
+                <div class="tier-space">
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                </div>
+
+            </div>
+
+            <div class="content-item">
+                <h1>1티어</h1>
+                <div class="tier-space">
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                    <img class="item-sumnail" src="img/thelastpage.jpg" />
+                </div>
+
+            </div>
+
+        </th:block>
+    </div>
+
+</div>
+
 </body>
 </html>

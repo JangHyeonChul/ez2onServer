@@ -1,0 +1,12 @@
+.header {
+    height: var(--header-height);
+    width: 100%;
+    background-color: var(--theme-color-02);
+}
+
+.header-nav {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}

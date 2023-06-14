@@ -1,0 +1,15 @@
+.subheader-nav {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: var(--theme-color-01);
+    border: 1px solid var(--theme-color-02);
+
+}
+
+.subheader-option {
+    width: 25%;
+   text-align: center;
+    border-right: 1px solid var(--theme-color-02);
+    margin: 1rem 0rem;
+}
