@@ -3,12 +3,20 @@
 @import url(item-info.css);
 @import url(header-nav.css);
 @import url(subheader-nav.css);
+@import url(comment.css);
+
 
 
 html, body, div, h1 {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    border: none;
+    outline: none;
 }
 
 .container {

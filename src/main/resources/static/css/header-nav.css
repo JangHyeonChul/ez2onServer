@@ -2,6 +2,7 @@
     height: var(--header-height);
     width: 100%;
     background-color: var(--theme-color-02);
+    margin-bottom: 1rem;
 }
 
 .header-nav {

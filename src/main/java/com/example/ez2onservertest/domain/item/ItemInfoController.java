@@ -21,9 +21,10 @@ public class ItemInfoController {
     public String itemInfo(@PathVariable("musicNumber")int musicNumber, Model model) {
 
         MusicDTO music = musicService.getMusic(musicNumber);
-        System.out.println("music = " + music);
-        model.addAttribute("music", music);
 
+
+        model.addAttribute("music", music);
+        model.addAttribute("musicNumber", musicNumber);
         return "item-info";
     }
 }
