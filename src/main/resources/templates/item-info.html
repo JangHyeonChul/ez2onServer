@@ -38,23 +38,30 @@
 
     </div>
 
-    <div class="item-info container maring-auto">버튼별난이도</div>
-    <div class="item-info container maring-auto">키별 곡순위 4 KEY : 1등</div>
+    <div class="item-info container ">버튼별난이도</div>
+    <div class="item-info container">키별 곡순위 4 KEY : 1등</div>
 
 
     <div class="comment-info maring-auto container">
 
       <div class="comment maring-auto">
-        <p>연타진짜 무섭네 ㄷㄷ;</p>
-        <div class="comment-footer">평가난이도 : 40/100</div>
+      <th:block th:each="comment : ${comments}">
+        <div class="comment-box">
+          <p th:text="${comment.getCo_content()}">연타진짜 무섭네 ㄷㄷ;</p>
+          <div class="comment-footer">
+            <p th:text="'평가 난이도 : ' + ${comment.getCo_level()} + '/100'"></p>
+          </div>
+        </div>
+      </th:block>
       </div>
 
       <div class="comment-form maring-auto">
         <textarea id="commentText"></textarea>
         <div>
         <label>난이도</label>
-        <input id="commentLevel" type="text"/>
+        <input id="commentLevel" type="number" max="100" min="1" oninput="commentlevelMax(this.value)"/>
         <button type="button"  th:onclick="'comment('+${musicNumber} + ')'">제출</button>
+          <p class="comment-error-message"></p>
         </div>
 
       </div>

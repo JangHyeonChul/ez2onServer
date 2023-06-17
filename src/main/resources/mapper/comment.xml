@@ -5,6 +5,16 @@
 
 <mapper namespace="com.example.ez2onservertest.domain.comment.CommentMapper">
 
+    <insert id="insertComment" parameterType="hashmap">
+        INSERT INTO comment(re_num, co_content, co_level)
+        VALUES (#{musicnumber}, #{content}, #{level})
+    </insert>
+
+    <select id="selectComments" parameterType="int" resultType="com.example.ez2onservertest.domain.comment.CommentDTO">
+        SELECT *
+        FROM comment
+        WHERE re_num = #{musicnumber}
+    </select>
 
 
 </mapper>

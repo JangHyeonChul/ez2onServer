@@ -1,17 +1,26 @@
 .comment {
     width: 80%;
     padding: 1rem;
-    background-color: var(--theme-color-01);
-    border: 1px solid var(--theme-color-05);
 }
 
 .comment-info {
     width: 80%;
 }
 
+.comment-box {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--theme-color-01);
+    border: 1px solid var(--theme-color-05);
+}
+
 .comment-footer {
+    text-align: end;
+    margin-top: 1rem;
     width: 100%;
 }
+
 
 .comment-form {
     width: 80%;
