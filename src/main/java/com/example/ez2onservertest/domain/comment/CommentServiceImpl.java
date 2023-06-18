@@ -20,7 +20,21 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public List<CommentDTO> getComments(int musicNumber) {
-        return commentMapper.selectComments(musicNumber);
+    public List<CommentDTO> getComments(int musicNumber, int offset) {
+        return commentMapper.selectComments(musicNumber, offset);
+    }
+
+    @Override
+    public int getCountComments(int musicNumber) {
+        return commentMapper.countComments(musicNumber);
+    }
+
+    @Override
+    public List<CommentDTO> insertCommentDTOCount(List<CommentDTO> comments, int number) {
+        int commentCount = getCountComments(number);
+        comments.stream().forEach( (comment) -> {
+            comment.setComment_cnt(commentCount);
+        });
+        return comments;
     }
 }

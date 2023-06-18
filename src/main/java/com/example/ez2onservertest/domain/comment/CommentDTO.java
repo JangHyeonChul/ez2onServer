@@ -10,5 +10,7 @@ public class CommentDTO {
     private String co_content;
     private int co_level;
 
+    private int comment_cnt;
+
     CommentDTO() {}
 }

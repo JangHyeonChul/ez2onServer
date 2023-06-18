@@ -27,7 +27,7 @@ public class ItemInfoController {
     public String itemInfo(@PathVariable("musicNumber")int musicNumber, Model model) {
 
         MusicDTO music = musicService.getMusic(musicNumber);
-        List<CommentDTO> comments = commentService.getComments(musicNumber);
+        List<CommentDTO> comments = commentService.getComments(musicNumber, 0);
 
         model.addAttribute("music", music);
         model.addAttribute("comments", comments);

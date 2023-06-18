@@ -32,3 +32,18 @@
 .comment-form textarea {
     width: 100%;
 }
+
+.comment-pagenav {
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.comment-pagenav-item {
+    background-color: var(--theme-color-02);
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin-left: 0.8rem;
+    cursor: pointer;
+
+}

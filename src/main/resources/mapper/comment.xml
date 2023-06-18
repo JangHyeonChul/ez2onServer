@@ -10,10 +10,17 @@
         VALUES (#{musicnumber}, #{content}, #{level})
     </insert>
 
-    <select id="selectComments" parameterType="int" resultType="com.example.ez2onservertest.domain.comment.CommentDTO">
+    <select id="selectComments" resultType="com.example.ez2onservertest.domain.comment.CommentDTO">
         SELECT *
         FROM comment
-        WHERE re_num = #{musicnumber}
+        WHERE re_num = #{musicNumber}
+        LIMIT #{offset}, 10
+    </select>
+
+    <select id="countComments" resultType="int" parameterType="int">
+        SELECT count(*)
+        FROM comment
+        WHERE re_num = #{musicNumber}
     </select>
 
 

@@ -26,6 +26,7 @@
       <img class="item-sumnail" th:src="${music.getRe_sumnail()}" />
       <div>
         <ul class="item-text">
+          <li class="music_num" th:text="${music.getRe_num()}">장르 : Artcore</li>
           <li th:text="${music.getRe_author()}">장르 : Artcore</li>
           <li>BPM : 195</li>
           <li>작곡가 : ARForest</li>
@@ -55,6 +56,10 @@
       </th:block>
       </div>
 
+      <div class="comment-pagenav maring-auto">
+
+      </div>
+
       <div class="comment-form maring-auto">
         <textarea id="commentText"></textarea>
         <div>
@@ -68,6 +73,7 @@
 
     </div>
 
+<script th:src="@{/js/commentPagenation.js}"></script>
 <script th:src="@{/js/comment.js}"></script>
 </body>
 </html>
