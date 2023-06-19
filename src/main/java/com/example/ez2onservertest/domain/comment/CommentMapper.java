@@ -12,4 +12,7 @@ public interface CommentMapper {
     int insertComment(Map<String, String> commentMap);
     List<CommentDTO> selectComments(@Param("musicNumber") int musicNumber, @Param("offset")int offset);
     int countComments(int musicNumber);
+    int selectCommentsLevel(int musicNumber);
+    int updateCommentLevel(@Param("musicNumber")int musicNumber, @Param("score")double score);
+
 }

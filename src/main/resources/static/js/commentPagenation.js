@@ -1,7 +1,5 @@
 $('document').ready(function () {
     const musicNumber = $('.music_num').text();
-    var number = typeof musicNumber;
-    console.log(number);
 
     $.ajax({
         url : '/comment/pagenation',
@@ -15,33 +13,40 @@ $('document').ready(function () {
         success: function (data) {
             var dataJSON = JSON.parse(data);
             var a = '';
+            var prev = '';
+            var next = '';
             var totalCnt = dataJSON[1].comment_cnt;
             var pageSize = 10;
             var naviSize = 10;
             var totalPage = Math.ceil(totalCnt / pageSize)
             var page = 1;
-            var beginPage = (page-1) / naviSize * naviSize + 1;
+            var beginPage = (Math.floor(((page-1) / naviSize)) * naviSize) + 1;
             var endPage = Math.min(beginPage + naviSize-1, totalPage);
-            var showPrev;
-            var showNext;
 
-            if (beginPage != 1) {
-                showPrev = true;
-            } else if (endPage != totalPage) {
-                showNext = true;
+
+
+            if (beginPage != 1 && page != 1) {
+                prev += '<a style="color: red" class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전페이지" + '</a>'
             }
-            // boolean showNext;
+
+            if (endPage != totalPage && page != totalPage) {
+                next += '<a style="color: red" class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음페이지" + '</a>'
+            }
 
             for (var num = beginPage; num <= endPage; num++) {
-                if (num == 2) {
-                    a += '<a class="comment-pagenav-item" ' +
+                if (num == page) {
+                    a += '<a style="color: red" class="comment-pagenav-item" ' +
                         'onclick="commentPage(' + musicNumber + ', ' + num +','+ pageSize +')">' + num + '</a>'
                 }else {
                     a += '<a class="comment-pagenav-item" ' +
                         'onclick="commentPage(' + musicNumber + ', ' + num +','+ pageSize +')">' + num + '</a>'
                 }
             }
-            $('.comment-pagenav').html(a);
+            $('.pageitem').html(a);
+            $('.prev').html(prev);
+            $('.next').html(next);
         }
 
     })
@@ -49,8 +54,8 @@ $('document').ready(function () {
 
 
 function commentPage(board_id, pageNum, pageSize) {
+    const musicNumber = $('.music_num').text();
     var offset = (pageNum - 1) * pageSize;
-    console.log(offset);
 
     var commentRequestMap = {
         board_id: board_id,
@@ -65,8 +70,41 @@ function commentPage(board_id, pageNum, pageSize) {
         data : JSON.stringify(commentRequestMap),
 
         success: function (data) {
-            var dataJSON = JSON.parse(data);
             var commentBox = $('.comment');
+            var dataJSON = JSON.parse(data);
+            var a = '';
+            var prev = '';
+            var next = '';
+            var totalCnt = dataJSON[1].comment_cnt;
+            var pageSize = 10;
+            var naviSize = 10;
+            var totalPage = Math.ceil(totalCnt / pageSize)
+            var page = pageNum;
+            var beginPage = (Math.floor(((page-1) / naviSize)) * naviSize) + 1;
+            var endPage = Math.min(beginPage + naviSize-1, totalPage);
+
+            if (beginPage != 1 && page != 1) {
+                prev += '<a style="color: red" class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전페이지" + '</a>'
+            }
+
+            if (endPage != totalPage && page != totalPage) {
+                next += '<a style="color: red" class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음페이지" + '</a>'
+            }
+
+            for (var num = beginPage; num <= endPage; num++) {
+                if (num == pageNum) {
+                    a += '<a style="color: red;" class="comment-pagenav-item" ' +
+                        'onclick="commentPage(' + musicNumber + ', ' + num +','+ pageSize +')">' + num + '</a>'
+                }else {
+                    a += '<a class="comment-pagenav-item" ' +
+                        'onclick="commentPage(' + musicNumber + ', ' + num +','+ pageSize +')">' + num + '</a>'
+                }
+            }
+            $('.pageitem').html(a);
+            $('.prev').html(prev);
+            $('.next').html(next);
             commentBox.empty();
             console.log(dataJSON);
 

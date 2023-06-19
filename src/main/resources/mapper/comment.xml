@@ -23,5 +23,17 @@
         WHERE re_num = #{musicNumber}
     </select>
 
+    <select id="selectCommentsLevel" resultType="int" parameterType="int">
+        SELECT SUM(co_level) as sum
+        FROM comment
+        WHERE re_num = 1
+    </select>
+
+    <update id="updateCommentLevel">
+        UPDATE registry
+        SET re_level = #{score}
+        WHERE re_num = #{musicNumber}
+    </update>
+
 
 </mapper>
