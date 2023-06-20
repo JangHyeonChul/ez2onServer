@@ -1,0 +1,10 @@
+.infomation-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+
+}
+
+.info-header iframe {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+}

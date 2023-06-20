@@ -13,6 +13,8 @@ public class MusicDTO {
     private String re_category;
     private float re_level;
     private String re_sumnail;
+    private String re_info;
+    private String re_video;
 
     public MusicDTO(){}
 

@@ -1,0 +1,13 @@
+.level-info {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+}
+
+.level-info tbody td,
+.level-info thead th{
+    background-color: var(--theme-color-01);
+    border: 2px solid var(--theme-color-02);
+    padding: 0 1.5rem;
+    text-align: center;
+}
+

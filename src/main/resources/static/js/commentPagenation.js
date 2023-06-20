@@ -26,13 +26,13 @@ $('document').ready(function () {
 
 
             if (beginPage != 1 && page != 1) {
-                prev += '<a style="color: red" class="comment-pagenav-item" ' +
-                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전페이지" + '</a>'
+                prev += '<a class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전" + '</a>'
             }
 
             if (endPage != totalPage && page != totalPage) {
-                next += '<a style="color: red" class="comment-pagenav-item" ' +
-                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음페이지" + '</a>'
+                next += '<a class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음" + '</a>'
             }
 
             for (var num = beginPage; num <= endPage; num++) {
@@ -84,13 +84,13 @@ function commentPage(board_id, pageNum, pageSize) {
             var endPage = Math.min(beginPage + naviSize-1, totalPage);
 
             if (beginPage != 1 && page != 1) {
-                prev += '<a style="color: red" class="comment-pagenav-item" ' +
-                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전페이지" + '</a>'
+                prev += '<a class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page-1) +','+ pageSize +')">' + "이전" + '</a>'
             }
 
             if (endPage != totalPage && page != totalPage) {
-                next += '<a style="color: red" class="comment-pagenav-item" ' +
-                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음페이지" + '</a>'
+                next += '<a class="comment-pagenav-item" ' +
+                    'onclick="commentPage(' + musicNumber + ', ' + (page + 1) + ',' + pageSize + ')">' + "다음" + '</a>'
             }
 
             for (var num = beginPage; num <= endPage; num++) {
