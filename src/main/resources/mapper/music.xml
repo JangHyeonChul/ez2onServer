@@ -7,12 +7,15 @@
 
     <select id="selectAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO">
         SELECT *
-        FROM registry
+        FROM registry re
+        JOIN registry_category ca ON re.re_category = ca.ca_num
+        ORDER BY re_level DESC
     </select>
 
     <select id="selectMusic" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" parameterType="int">
         SELECT *
-        FROM registry
+        FROM registry re
+        JOIN registry_category ca ON re.re_category = ca.ca_num
         WHERE re_num = #{musicNumber}
     </select>
 

@@ -26,7 +26,7 @@
     <select id="selectCommentsLevel" resultType="int" parameterType="int">
         SELECT SUM(co_level) as sum
         FROM comment
-        WHERE re_num = 1
+        WHERE re_num = #{musicNumber}
     </select>
 
     <update id="updateCommentLevel">

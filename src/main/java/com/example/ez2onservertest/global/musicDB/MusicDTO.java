@@ -16,6 +16,11 @@ public class MusicDTO {
     private String re_info;
     private String re_video;
 
+    // JOIN
+    private int ca_num;
+    private String ca_name;
+
+
     public MusicDTO(){}
 
 }

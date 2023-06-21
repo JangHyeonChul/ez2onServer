@@ -1,0 +1,14 @@
+.search {
+    border: 1px solid var(--theme-color-03);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+
+.search input {
+    border: none;
+}
+
+.search input:focus {
+    border: none;
+}
