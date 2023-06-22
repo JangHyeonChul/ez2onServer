@@ -37,7 +37,7 @@
                     <h3>랭킹</h3>
                     <i class="far fa-question-circle"></i></div>
                 <ul class="option-ul">
-                    <li><a>전체랭킹</a></li>
+                    <li><a onclick="totalRankBtn()">전체랭킹</a></li>
                     <li><a>Time Traveler</a></li>
                     <li><a>CodeName Violet</a></li>
                     <li><a>Prestige Pass</a></li>
@@ -64,107 +64,11 @@
 
 
         <div class="content-item">
-            <div class="rank-box ">
-
-                    <div class="ranking">
-                        <h3>1위</h3>
-                        <a th:href="@{/music/{musicNumber}(musicNumber= ${allMusic[0].getRe_num()})}" >
-                            <img class="main-item-sumnail" th:src="${allMusic[0].getRe_sumnail()}" /></a>
-                        <p th:text="${allMusic[0].getRe_name()}"></p>
-                        <p style="color: red;" th:text="'(평가난이도 : ' + ${allMusic[0].getRe_level()} + ')'"></p>
-                    </div>
-
-                    <div class="ranking">
-                        <h3>2위</h3>
-                        <a th:href="@{/music/{musicNumber}(musicNumber= ${allMusic[1].getRe_num()})}">
-                        <img class="main-item-sumnail"  th:src="${allMusic[1].getRe_sumnail()}" /></a>
-                        <p th:text="${allMusic[1].getRe_name()}"></p>
-                        <p style="color: red;" th:text="'(평가난이도 : ' + ${allMusic[1].getRe_level()} + ')'"></p>
-                    </div>
-
-                    <div class="ranking">
-                        <h3>3위</h3>
-                        <a th:href="@{/music/{musicNumber}(musicNumber= ${allMusic[2].getRe_num()})}">
-                            <img class="main-item-sumnail"  th:src="${allMusic[2].getRe_sumnail()}" /></a>
-                        <p th:text="${allMusic[2].getRe_name()}"></p>
-                        <p style="color: red;" th:text="'(평가난이도 : ' + ${allMusic[2].getRe_level()} + ')'"></p>
-                    </div>
-
-            </div>
-
-            <div class="tier-item-box maring-auto">
-                <div class="content-h3"><h3>0티어</h3></div>
-                    <div class="content-item-box">
-                        <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 3 and ${iterStat.index} &lt;= 7" >
-                            <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                            <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                            </div>
-                        </th:block>
-                    </div>
-                <div class="content-item-box">
-                    <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 8 and ${iterStat.index} &lt;= 12" >
-                        <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                                <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                        </div>
-                    </th:block>
-                </div>
-            </div>
-
-            <div class="maring-auto">
-                <div class="content-h3"><h3>1티어</h3></div>
-                <div class="content-item-box">
-                    <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 13 and ${iterStat.index} &lt;= 17" >
-                        <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                                <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                        </div>
-                    </th:block>
-                </div>
-                <div class="content-item-box">
-                    <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 18 and ${iterStat.index} &lt;= 22" >
-                        <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                                <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                        </div>
-                    </th:block>
-                </div>
-            </div>
-            <div class="maring-auto">
-                <div class="content-h3"><h3>2티어</h3></div>
-                <div class="content-item-box">
-                    <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 23 and ${iterStat.index} &lt;= 27" >
-                        <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                                <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                        </div>
-                    </th:block>
-                </div>
-                <div class="content-item-box">
-                    <th:block th:each="music, iterStat : ${allMusic}" th:if="${iterStat.index} &gt;= 28 and ${iterStat.index} &lt;= 30" >
-                        <div class="item-box ranking">
-                            <a th:href="@{/music/{musicNumber}(musicNumber= ${music.getRe_num()})}">
-                                <img class="main-item-sumnail"  th:src="${music.getRe_sumnail()}" /></a>
-                            <p th:text="${music.getRe_name()}"></p>
-                            <p style="color: red;" th:text="'(평가난이도 : ' + ${music.getRe_level()} + ')'"></p>
-                        </div>
-                    </th:block>
-                </div>
-            </div>
+<!--            JavaScript : main_TotalRank.js-->
         </div>
 </div>
 
-
+<script th:src="@{/js/main-rank/main_TotalRank.js}"></script>
+<script th:src="@{/js/main-rank/totalRankHTML.js}"></script>
 </body>
 </html>

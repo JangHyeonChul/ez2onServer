@@ -1,28 +1,28 @@
 package com.example.ez2onservertest.domain.comment;
 
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
 
 @Controller
-public class CommentController {
+@RestController
+public class CommentAPI {
 
     CommentValid commentValid;
     CommentService commentService;
 
-    public CommentController(CommentValid commentValid, CommentService commentService) {
+    public CommentAPI(CommentValid commentValid, CommentService commentService) {
         this.commentValid = commentValid;
         this.commentService = commentService;
     }
 
     @PostMapping("/comment")
-    @ResponseBody
     @Transactional
     public List<CommentDTO> writeComment(@RequestBody Map<String, String> commentMap) {
         Map<String, String> errorMap = commentValid.commentValid(commentMap);
@@ -38,7 +38,6 @@ public class CommentController {
     }
 
     @PostMapping("/comment/pagenation")
-    @ResponseBody
     public List<CommentDTO>  commentPagetion(@RequestBody Map<String, String> musicNumber) {
         int number = Integer.parseInt(musicNumber.get("musicNumber"));
 
@@ -48,7 +47,6 @@ public class CommentController {
     }
 
     @PostMapping("/comment/page")
-    @ResponseBody
     public List<CommentDTO> commentPage(@RequestBody Map<String, String> commentRequestMap) {
         int board_id = Integer.parseInt(commentRequestMap.get("board_id"));
         int offset = Integer.parseInt(commentRequestMap.get("offset"));
