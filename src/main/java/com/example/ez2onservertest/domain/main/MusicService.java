@@ -11,4 +11,5 @@ public interface MusicService {
 
     List<MusicDTO> getAllMusics();
     MusicDTO getMusic(int musicNumber);
+    List<MusicDTO> getDlcTypeMusics(int dlcNumber);
 }

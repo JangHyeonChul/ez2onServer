@@ -1,9 +1,7 @@
 package com.example.ez2onservertest.domain.main;
 
 import com.example.ez2onservertest.global.musicDB.MusicDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +18,13 @@ public class MainAPI {
     public List<MusicDTO> getTotalRank() {
         return musicService.getAllMusics();
     }
+
+    @GetMapping("/rank/dlc")
+    public List<MusicDTO> getDLCRank(@RequestParam("dlcnumber") int dlcNumber) {
+
+        return musicService.getDlcTypeMusics(dlcNumber);
+
+
+    }
 }
+

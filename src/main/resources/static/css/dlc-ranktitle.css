@@ -1,0 +1,36 @@
+.dlc-tt, .dlc-cv, .dlc-pp, .dlc-o2jam,
+.dlc-groove, .dlc-ec {
+    padding-bottom: 2rem;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+    color: transparent;
+}
+
+.dlc-tt {
+    background: linear-gradient(to right top, #75a975 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}
+
+.dlc-cv {
+    background: linear-gradient(to right top, #cb86dc 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}
+
+.dlc-pp {
+    background: linear-gradient(to right top, #ff8989 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}
+
+.dlc-o2jam {
+    background: linear-gradient(to right top, #ffa84c 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}
+
+.dlc-groove {
+    background: linear-gradient(to right top, #566eff 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}
+
+.dlc-ec {
+    background: linear-gradient(to right top, #676767 20%, #ffffff 80%);
+    -webkit-background-clip: text;
+}

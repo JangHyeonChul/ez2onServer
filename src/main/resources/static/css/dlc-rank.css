@@ -1,0 +1,29 @@
+.dlc-rank-box {
+    width: 80%;
+    padding: 1rem;
+
+}
+
+.dlc-rank {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    width: 70%;
+    border-bottom: 1px solid var(--theme-color-04);
+}
+
+.dlc-img {
+    border-radius: 3rem;
+    width: 250px;
+    height: 150px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+
+.dlc-rank-column {
+    width: 20%;
+}
+
+.dlc-text ul li {
+    margin: 0.3rem 0;
+}

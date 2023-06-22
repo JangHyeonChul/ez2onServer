@@ -18,5 +18,13 @@
         JOIN registry_category ca ON re.re_category = ca.ca_num
         WHERE re_num = #{musicNumber}
     </select>
+    
+    <select id="selectDlcTypeMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" parameterType="int">
+        SELECT *
+        FROM registry re
+                 JOIN registry_category ca ON re.re_category = ca.ca_num
+        WHERE re.re_category = #{dlcNumber}
+        ORDER BY re.re_level DESC
+    </select>
 
 </mapper>

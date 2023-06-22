@@ -26,4 +26,9 @@ public class MusicServiceImpl implements MusicService {
     public MusicDTO getMusic(int musicNumber) {
         return music.selectMusic(musicNumber);
     }
+
+    @Override
+    public List<MusicDTO> getDlcTypeMusics(int dlcNumber) {
+        return music.selectDlcTypeMusics(dlcNumber);
+    }
 }

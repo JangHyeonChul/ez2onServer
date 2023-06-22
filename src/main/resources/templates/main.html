@@ -38,19 +38,19 @@
                     <i class="far fa-question-circle"></i></div>
                 <ul class="option-ul">
                     <li><a onclick="totalRankBtn()">전체랭킹</a></li>
-                    <li><a>Time Traveler</a></li>
-                    <li><a>CodeName Violet</a></li>
-                    <li><a>Prestige Pass</a></li>
-                    <li><a>O2JAM 콜라보</a></li>
-                    <li><a>Groove Coaster 콜라보</a></li>
-                    <li><a>Endless Circulation</a></li>
+                    <li><a onclick="DLCRankBtn(1)">Time Traveler</a></li>
+                    <li><a onclick="DLCRankBtn(2)">CodeName Violet</a></li>
+                    <li><a onclick="DLCRankBtn(3)">Prestige Pass</a></li>
+                    <li><a onclick="DLCRankBtn(4)">O2JAM 콜라보</a></li>
+                    <li><a onclick="DLCRankBtn(5)">Groove Coaster 콜라보</a></li>
+                    <li><a onclick="DLCRankBtn(6)">Endless Circulation</a></li>
                 </ul>
             </div>
 
             <div class="option-rank">
                 <div class="option-h"><h3>옵션</h3></div>
                 <ul class="option-ul">
-                    <li><a>고민중</a></li>
+                    <li><a>DLC</a></li>
                     <li><a>고민중</a></li>
                     <li><a>고민중</a></li>
                     <li><a>고민중</a></li>
@@ -64,11 +64,20 @@
 
 
         <div class="content-item">
+
+
+
+            </div>
+
+
 <!--            JavaScript : main_TotalRank.js-->
         </div>
 </div>
+<div class="footer-info">네오노비스</div>
 
 <script th:src="@{/js/main-rank/main_TotalRank.js}"></script>
 <script th:src="@{/js/main-rank/totalRankHTML.js}"></script>
+<script th:src="@{/js/main-rank/main_DLCRank.js}"></script>
+<script th:src="@{/js/main-rank/dlcRankHTML.js}"></script>
 </body>
 </html>
