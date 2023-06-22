@@ -28,11 +28,13 @@ function comment(musicNumber) {
             var commentInput = $('#commentText');
             var commentlevel = $('#commentLevel');
             commentBox.empty();
-            console.log(data);
 
-            $.each(data, function (index, commentList) {
-                drawComment(commentList, commentBox);
-            })
+                $.each(data, function (index, commentList) {
+
+                    drawComment(commentList, commentBox);
+                })
+
+
 
             commentInput.val("");
             commentlevel.val("");

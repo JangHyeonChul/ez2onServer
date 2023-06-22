@@ -146,6 +146,9 @@
     <div class="comment-info maring-auto container">
       <div class="maring-auto" style="width: 80%; padding: 1rem;"><h1>COMMENT</h1></div>
       <div class="comment maring-auto">
+        <th:block th:if="${comments.size == 0}">
+          <p style="text-align: center">현재 해당 음악에는 아무런 평가가 입력되지 않았습니다. 평가를 내려주세요</p>
+        </th:block>
       <th:block th:each="comment : ${comments}">
         <div class="comment-box">
           <p th:text="${comment.getCo_content()}"></p>
