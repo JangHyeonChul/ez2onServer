@@ -39,7 +39,6 @@
 .main-item-sumnail {
     height: 90px;
     width: 90px;
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 .ranking {

@@ -20,6 +20,10 @@ html, body, div, h1, h2, h3, p {
     box-sizing: border-box;
 }
 
+img {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
 a {
     cursor: pointer;
     color: black;
@@ -39,6 +43,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
+
 
 
 body {

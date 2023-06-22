@@ -1,6 +1,9 @@
 .footer-info {
-    height: 200px;
     width: 100%;
     background-color: var(--theme-color-02);
     margin-top: 5rem;
+}
+
+.footer-text {
+    padding: 2rem 0;
 }

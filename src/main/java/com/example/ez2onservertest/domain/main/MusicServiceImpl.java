@@ -31,4 +31,10 @@ public class MusicServiceImpl implements MusicService {
     public List<MusicDTO> getDlcTypeMusics(int dlcNumber) {
         return music.selectDlcTypeMusics(dlcNumber);
     }
+
+    @Override
+    public List<MusicDTO> getSearch(String keyword) {
+        String result = keyword.trim();
+        return music.selectSearch(result);
+    }
 }

@@ -27,4 +27,11 @@
         ORDER BY re.re_level DESC
     </select>
 
+    <select id="selectSearch" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" parameterType="String">
+        SELECT *
+        FROM registry
+        WHERE REPLACE(re_name, ' ', '') LIKE concat('%', REPLACE(#{keyword}, ' ', ''), '%')
+        LIMIT 0, 7
+    </select>
+
 </mapper>

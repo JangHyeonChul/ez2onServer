@@ -24,7 +24,12 @@ public class MainAPI {
 
         return musicService.getDlcTypeMusics(dlcNumber);
 
+    }
 
+    @GetMapping("/search")
+    public List<MusicDTO> getSearch(@RequestParam("keyword") String keyword) {
+        List<MusicDTO> search = musicService.getSearch(keyword);
+        return search;
     }
 }
 
