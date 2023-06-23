@@ -9,6 +9,7 @@ public class CommentDTO {
     private int re_num;
     private String co_content;
     private int co_level;
+    private String co_btn;
 
     private int comment_cnt;
 

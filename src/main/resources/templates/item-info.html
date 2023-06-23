@@ -22,6 +22,21 @@
   </div>
 </div>
 
+<div class="info-key container">
+
+  <input class="info-key-hidden"  type="hidden"/>
+  <ul class="info-key-box">
+    <li><a id="4kbtn" onclick="keyValue('4K')">4K</a></li>
+    <li><a id="5kbtn" onclick="keyValue('5K')">5K</a></li>
+    <li><a id="6kbtn" onclick="keyValue('6K')">6K</a></li>
+    <li><a id="8kbtn" onclick="keyValue('8K')">8K</a></li>
+  </ul>
+</div>
+
+
+
+
+
   <div class="info-content container">
 
     <div class="item-info">
@@ -69,7 +84,7 @@
 
         <div class="text-column">
           <div class="item-column"><h2>평가난이도</h2></div>
-          <div style="color: red;" class="item-column"><h2 th:text="${music.getRe_level()}"></h2></div>
+          <div style="color: red;" class="item-column"><h2 th:text="${music.getRe_level()} + ' (종합)'"></h2></div>
         </div>
 
 
@@ -78,23 +93,7 @@
 
     <div class="item-info container">
       <div class="info-header">
-        <div class="infomation-title"><h3>정보</h3></div>
-        <p style="text-align: center;" th:utext="${music.getRe_info()}"></p>
-      </div>
-    </div>
-
-    <div class="item-info container">
-      <div class="info-header">
-
-        <div class="infomation-title"><h3>동영상</h3></div>
-        <iframe width="560" height="315" th:src="${music.getRe_video()} + '?controls=2'"
-              frameborder="0" allow="accelerometer encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <div class="item-info container">
-      <div class="info-header">
-        <div class="infomation-title"><h3>난이도정보</h3></div>
+        <div class="infomation-title"><h3>난이도</h3></div>
         <table class="level-info">
           <thead>
           <th>모드/난이도</th>
@@ -137,8 +136,30 @@
           </tbody>
         </table>
         <p style="text-align: center;">해당 난이도는 Standard 기준입니다.</p>
+        <div class="info-content">
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="item-info container">
+      <div class="info-header">
+        <div class="infomation-title"><h3>정보</h3></div>
+        <p style="text-align: center;" th:utext="${music.getRe_info()}"></p>
       </div>
     </div>
+
+    <div class="item-info container">
+      <div class="info-header">
+
+        <div class="infomation-title"><h3>동영상</h3></div>
+        <iframe width="560" height="315" th:src="${music.getRe_video()} + '?controls=2'"
+              frameborder="0" allow="accelerometer encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
 
 
 
@@ -151,6 +172,11 @@
         </th:block>
       <th:block th:each="comment : ${comments}">
         <div class="comment-box">
+          <h2 class="simbol-total" th:if="${comment.getCo_btn()} == 'total'" th:text="${comment.getCo_btn()}"></h2>
+          <h2 class="simbol-4k" th:if="${comment.getCo_btn()} == '4K'" th:text="${comment.getCo_btn()}"></h2>
+          <h2 class="simbol-5k" th:if="${comment.getCo_btn()} == '5K'" th:text="${comment.getCo_btn()}"></h2>
+          <h2 class="simbol-6k" th:if="${comment.getCo_btn()} == '6K'" th:text="${comment.getCo_btn()}"></h2>
+          <h2 class="simbol-8k" th:if="${comment.getCo_btn()} == '8K'" th:text="${comment.getCo_btn()}"></h2>
           <p th:text="${comment.getCo_content()}"></p>
           <div class="comment-footer">
             <p th:text="'평가 난이도 : ' + ${comment.getCo_level()} + '/100'"></p>
@@ -183,8 +209,10 @@
   <div class="footer-text container">
     <p>사이트 내 사용된 모든 게임 컨텐츠의 저작권은 NEONOVICE에 있습니다.</p>
   </div>
+</div>
 
 <script th:src="@{/js/commentPagenation.js}"></script>
 <script th:src="@{/js/comment.js}"></script>
+<script th:src="@{/js/key-nav.js}"></script>
 </body>
 </html>

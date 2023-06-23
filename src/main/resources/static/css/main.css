@@ -11,6 +11,7 @@
 @import url(icon.css);
 @import url(dlc-rank.css);
 @import url(dlc-ranktitle.css);
+@import url(info-key.css);
 
 
 
@@ -105,6 +106,10 @@ li, ul {
 .maring-auto {
     margin-left: auto;
     margin-right: auto;
+}
+
+.red {
+    color: red;
 }
 
 

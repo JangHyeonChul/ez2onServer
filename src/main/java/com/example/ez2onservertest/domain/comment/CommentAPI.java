@@ -30,7 +30,7 @@ public class CommentAPI {
 
         if (errorMap.size() == 0) {
             commentService.writeComment(commentMap);
-            commentService.updateLevels(musicNumber);
+            commentService.updateLevels(commentMap);
         }
 
         return commentService.getComments(musicNumber, 0);

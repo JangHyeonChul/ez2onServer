@@ -1,0 +1,20 @@
+.info-key-box {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.info-key-box li {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--theme-color-01);
+    border: 1px solid var(--theme-color-04);
+}
+
+.info-key-box li a {
+    font-weight: 600;
+}
+
+
+
+

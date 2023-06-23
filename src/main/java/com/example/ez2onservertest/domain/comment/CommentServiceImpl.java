@@ -32,6 +32,7 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public int getCommentLevels(int musicNumber) {
+
         return commentMapper.selectCommentsLevel(musicNumber);
     }
 
@@ -45,9 +46,15 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void updateLevels(int musicNumber) {
+    public void updateLevels(Map<String, String> commentMap) {
+        int musicNumber = Integer.parseInt(commentMap.get("musicnumber"));
+        String keyValue = commentMap.get("btn");
+
         double score = getScoreTally(musicNumber);
         commentMapper.updateCommentLevel(musicNumber, score);
+
+        double scoreKey = getScoreKeyTally(musicNumber, keyValue);
+        commentMapper.updateCommentKeyLevel(musicNumber, scoreKey, keyValue);
     }
 
     @Override
@@ -59,5 +66,17 @@ public class CommentServiceImpl implements CommentService{
 
         DecimalFormat form = new DecimalFormat("#.##");
         return Double.parseDouble(form.format(doubleResult));
+    }
+
+    private double getScoreKeyTally(int musicNumber, String keyValue) {
+        int keyLevels = commentMapper.selectCommentsKeyLevel(musicNumber, keyValue);
+        int countKeylevels = commentMapper.countKeyComments(musicNumber, keyValue);
+
+        double doubleResult = (double) keyLevels/countKeylevels;
+
+        DecimalFormat form = new DecimalFormat("#.##");
+        return Double.parseDouble(form.format(doubleResult));
+
+
     }
 }

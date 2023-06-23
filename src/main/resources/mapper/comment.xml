@@ -6,8 +6,8 @@
 <mapper namespace="com.example.ez2onservertest.domain.comment.CommentMapper">
 
     <insert id="insertComment" parameterType="hashmap">
-        INSERT INTO comment(re_num, co_content, co_level)
-        VALUES (#{musicnumber}, #{content}, #{level})
+        INSERT INTO comment(re_num, co_content, co_level, co_btn)
+        VALUES (#{musicnumber}, #{content}, #{level}, #{btn})
     </insert>
 
     <select id="selectComments" resultType="com.example.ez2onservertest.domain.comment.CommentDTO">
@@ -23,6 +23,12 @@
         WHERE re_num = #{musicNumber}
     </select>
 
+    <select id="countKeyComments" resultType="int" >
+        SELECT count(*)
+        FROM comment
+        WHERE re_num = #{musicNumber} AND co_btn = #{keyValue}
+    </select>
+
     <select id="selectCommentsLevel" resultType="int" parameterType="int">
         SELECT SUM(co_level) as sum
         FROM comment
@@ -32,6 +38,35 @@
     <update id="updateCommentLevel">
         UPDATE registry
         SET re_level = #{score}
+        WHERE re_num = #{musicNumber}
+    </update>
+
+    <select id="selectCommentsKeyLevel" resultType="int">
+        SELECT SUM(co_level)
+        FROM comment
+        WHERE co_btn = #{keyValue} and re_num = #{musicNumber}
+    </select>
+
+    <update id="updateCommentKeyLevel">
+        UPDATE registry_level
+        <set>
+            <if test='keyValue.equals("4K")'>
+                level_4K = #{score}
+            </if>
+
+            <if test='keyValue.equals("5K")'>
+                level_5K = #{score}
+            </if>
+
+            <if test='keyValue.equals("6K")'>
+                level_6K = #{score}
+            </if>
+
+            <if test='keyValue.equals("8K")'>
+                level_8K = #{score}
+            </if>
+
+        </set>
         WHERE re_num = #{musicNumber}
     </update>
 

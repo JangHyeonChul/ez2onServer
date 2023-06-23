@@ -110,14 +110,34 @@ function commentPage(board_id, pageNum, pageSize) {
 
             $.each(dataJSON, function (index, commentList) {
                 drawPagingComment(commentList, commentBox);
+
             })
         }
     });
 }
 
 function drawPagingComment(commentList, commentBox) {
+    var btn = commentList.co_btn;
+    var btnHTML = '';
+
+    switch (btn) {
+        case '4K':
+            btnHTML += '<h2 class="simbol-4k">' + btn + '</h2>'
+            break;
+        case '5K':
+            btnHTML += '<h2 class="simbol-5k">' + btn + '</h2>'
+            break;
+        case '6K':
+            btnHTML += '<h2 class="simbol-6k">' + btn + '</h2>'
+            break;
+        case '8K':
+            btnHTML += '<h2 class="simbol-8k">' + btn + '</h2>'
+            break;
+    }
+
     commentBox.append(
         ' <div class="comment-box">' +
+        btnHTML +
         '<p> ' + commentList.co_content  + '</p>'+
         '<div class="comment-footer">'+
         '<p> 평가 난이도 : ' + commentList.co_level +'/100</p>'+

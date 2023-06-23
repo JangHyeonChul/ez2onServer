@@ -34,4 +34,12 @@
         LIMIT 0, 7
     </select>
 
+    <select id="selectLevels" parameterType="int" resultType="com.example.ez2onservertest.global.musicDB.MusicKeyLevelDTO">
+        SELECT *
+        FROM registry_level
+        WHERE re_num = #{musicNumber}
+    </select>
+
+
+
 </mapper>

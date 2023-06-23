@@ -8,7 +8,8 @@
 }
 
 .comment-box {
-    padding: 1rem;
+    position: relative;
+    padding: 1.5rem 1rem;
     border-radius: 1rem;
     margin-top: 1rem;
     background-color: var(--theme-color-01);
@@ -53,5 +54,30 @@
 
 }
 
-#commentLevel {
+.simbol-4k,
+.simbol-5k,
+.simbol-6k,
+.simbol-8k {
+    color: white;
+    padding: 0.3rem;
+    position: absolute;
+    top: -0.8rem;
+    left: -1px;
+    font-size: 1rem;
+}
+
+.simbol-4k {
+    background-color: #ffda91;
+}
+
+.simbol-5k {
+    background-color: #a4fffa;
+}
+
+.simbol-6k {
+    background-color: #ff9b9b;
+}
+
+.simbol-8k {
+    background-color: #a1b3ff;
 }

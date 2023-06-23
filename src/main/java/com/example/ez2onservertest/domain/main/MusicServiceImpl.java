@@ -2,6 +2,7 @@ package com.example.ez2onservertest.domain.main;
 
 
 import com.example.ez2onservertest.global.musicDB.MusicDTO;
+import com.example.ez2onservertest.global.musicDB.MusicKeyLevelDTO;
 import com.example.ez2onservertest.global.musicDB.MusicMapper;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,10 @@ public class MusicServiceImpl implements MusicService {
     public List<MusicDTO> getSearch(String keyword) {
         String result = keyword.trim();
         return music.selectSearch(result);
+    }
+
+    @Override
+    public MusicKeyLevelDTO getKeyLevels(int musicNumber) {
+        return music.selectLevels(musicNumber);
     }
 }

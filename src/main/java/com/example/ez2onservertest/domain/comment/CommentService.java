@@ -11,6 +11,6 @@ public interface CommentService {
     int getCommentLevels(int musicNumber);
 
     List<CommentDTO> insertCommentDTOCount(List<CommentDTO> commentDTO, int number);
-    void updateLevels(int musicNumber);
+    void updateLevels(Map<String, String> commentMap);
     double getScoreTally(int musicNumber);
 }

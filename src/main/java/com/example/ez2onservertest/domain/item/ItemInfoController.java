@@ -6,6 +6,7 @@ import com.example.ez2onservertest.domain.comment.CommentDTO;
 import com.example.ez2onservertest.domain.comment.CommentService;
 import com.example.ez2onservertest.domain.main.MusicService;
 import com.example.ez2onservertest.global.musicDB.MusicDTO;
+import com.example.ez2onservertest.global.musicDB.MusicKeyLevelDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,9 @@ public class ItemInfoController {
         MusicDTO music = musicService.getMusic(musicNumber);
         List<CommentDTO> comments = commentService.getComments(musicNumber, 0);
         List<List<String>> btnLevels = btnLevelService.getBtnLevel(musicNumber);
+        MusicKeyLevelDTO keyLevels = musicService.getKeyLevels(musicNumber);
 
+        model.addAttribute("keylevels", keyLevels);
         model.addAttribute("btnlevels", btnLevels);
         model.addAttribute("music", music);
         model.addAttribute("comments", comments);
