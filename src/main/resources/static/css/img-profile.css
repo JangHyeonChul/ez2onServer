@@ -1,0 +1,35 @@
+.ranking {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-hover-box {
+    position: absolute;
+    top: 30px;
+    width: 90px;
+    height: 90px;
+    background-color: red;
+    overflow: hidden;
+}
+
+.img-hover-box:hover {
+    position: absolute;
+    width: 250px;
+    height: 90px;
+    background-color: red;
+}
+
+.img-hover {
+    display: flex;
+}
+
+
+
+
+
+.main-item-sumnail {
+    width: 90px;
+    height: 90px;
+}

@@ -36,16 +36,9 @@
     padding-bottom: 3rem;
 }
 
-.main-item-sumnail {
-    height: 90px;
-    width: 90px;
-}
 
-.ranking {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
+
 
 .ranking h3 {
     text-align: center;
@@ -67,3 +60,4 @@
 .content-item-box-plus {
     border: 2px solid var(--theme-color-03);
 }
+

@@ -20,7 +20,13 @@ public class MusicServiceImpl implements MusicService {
 
     @Override
     public List<MusicDTO> getAllMusics() {
-        return music.selectAllMusics();
+        List<MusicDTO> allMusics = music.selectAllMusics();
+        allMusics.stream().forEach( (i) -> {
+            float reLevel = i.getRe_level();
+            i.setSelectLevel(reLevel);
+        });
+
+        return allMusics;
     }
 
     @Override
@@ -40,7 +46,49 @@ public class MusicServiceImpl implements MusicService {
     }
 
     @Override
+    public List<MusicDTO> get4KAllMusics() {
+        List<MusicDTO> allMusics = music.select4BtnAllMusics();
+        allMusics.stream().forEach( (i) -> {
+            float reLevel = i.getLevel_4K();
+            i.setSelectLevel(reLevel);
+        });
+        return allMusics;
+    }
+
+    @Override
+    public List<MusicDTO> get5KAllMusics() {
+        List<MusicDTO> allMusics = music.select5BtnAllMusics();
+        allMusics.stream().forEach( (i) -> {
+            float reLevel = i.getLevel_5K();
+            i.setSelectLevel(reLevel);
+        });
+        return allMusics;
+    }
+
+    @Override
+    public List<MusicDTO> get6KAllMusics() {
+        List<MusicDTO> allMusics = music.select6BtnAllMusics();
+        allMusics.stream().forEach( (i) -> {
+            float reLevel = i.getLevel_6K();
+            i.setSelectLevel(reLevel);
+        });
+        return allMusics;
+    }
+
+    @Override
+    public List<MusicDTO> get8KAllMusics() {
+        List<MusicDTO> allMusics = music.select8BtnAllMusics();
+        allMusics.stream().forEach( (i) -> {
+            float reLevel = i.getLevel_8K();
+            i.setSelectLevel(reLevel);
+        });
+        return allMusics;
+    }
+
+    @Override
     public MusicKeyLevelDTO getKeyLevels(int musicNumber) {
         return music.selectLevels(musicNumber);
     }
+
+
 }

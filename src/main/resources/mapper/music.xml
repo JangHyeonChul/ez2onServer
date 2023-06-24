@@ -40,6 +40,33 @@
         WHERE re_num = #{musicNumber}
     </select>
 
+    <select id="select4BtnAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" >
+        SELECT *
+        FROM registry re JOIN registry_level rl on re.re_num = rl.re_num
+        ORDER BY rl.level_4K DESC
+    </select>
+
+    <select id="select5BtnAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" >
+        SELECT *
+        FROM registry re JOIN registry_level rl on re.re_num = rl.re_num
+        ORDER BY rl.level_5K DESC
+    </select>
+
+
+    <select id="select6BtnAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" >
+        SELECT *
+        FROM registry re JOIN registry_level rl on re.re_num = rl.re_num
+        ORDER BY rl.level_6K DESC
+    </select>
+
+
+    <select id="select8BtnAllMusics" resultType="com.example.ez2onservertest.global.musicDB.MusicDTO" >
+        SELECT *
+        FROM registry re JOIN registry_level rl on re.re_num = rl.re_num
+        ORDER BY rl.level_8K DESC
+    </select>
+
+
 
 
 </mapper>

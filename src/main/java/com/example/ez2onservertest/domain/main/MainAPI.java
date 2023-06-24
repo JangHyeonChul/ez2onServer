@@ -16,7 +16,8 @@ public class MainAPI {
 
     @GetMapping("/rank/total")
     public List<MusicDTO> getTotalRank() {
-        return musicService.getAllMusics();
+        List<MusicDTO> allMusics = musicService.getAllMusics();
+        return allMusics;
     }
 
     @GetMapping("/rank/dlc")
@@ -30,6 +31,26 @@ public class MainAPI {
     public List<MusicDTO> getSearch(@RequestParam("keyword") String keyword) {
         List<MusicDTO> search = musicService.getSearch(keyword);
         return search;
+    }
+
+    @GetMapping("/rank/key")
+    public List<MusicDTO> getKeyRank(@RequestParam("keyvalue") String keyValue) {
+        if (keyValue.equals("4K")) {
+            return musicService.get4KAllMusics();
+        }
+
+        if (keyValue.equals("5K")) {
+            return musicService.get5KAllMusics();
+        }
+
+        if (keyValue.equals("6K")) {
+            return musicService.get6KAllMusics();
+        }
+
+        if (keyValue.equals("8K")) {
+            return musicService.get8KAllMusics();
+        }
+        return null;
     }
 }
 

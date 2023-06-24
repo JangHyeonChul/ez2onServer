@@ -15,6 +15,11 @@ public interface MusicService {
     List<MusicDTO> getDlcTypeMusics(int dlcNumber);
     List<MusicDTO> getSearch(String keyword);
 
+    List<MusicDTO> get4KAllMusics();
+    List<MusicDTO> get5KAllMusics();
+    List<MusicDTO> get6KAllMusics();
+    List<MusicDTO> get8KAllMusics();
+
     MusicKeyLevelDTO getKeyLevels(int musicNumber);
 
 

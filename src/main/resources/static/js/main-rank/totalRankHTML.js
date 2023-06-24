@@ -7,15 +7,16 @@ function drawTotalRank() {
         dataType: 'text',
 
         success: function (data) {
-            drawTotalHTML(data)
+            const dataJSON = JSON.parse(data);
+            drawTotalHTML(dataJSON, null)
         }
     })
 
 }
 
-function drawTotalHTML(data) {
+function drawTotalHTML(data, keyValue) {
     const contentItem = $('.content-item');
-    const dataJSON = JSON.parse(data);
+    console.log(data);
     var tier0List_up = '';
     var tier0List_down = '';
 
@@ -25,85 +26,92 @@ function drawTotalHTML(data) {
     var tier2List_up = '';
     var tier2List_down = '';
 
-    $.each(dataJSON, function (index, data) {
+    var keyNav = '';
+
+    if (keyValue != null) {
+        keyNav += '            <div class="rank-key">\n' +
+            '                <ul>\n' +
+            '                    <h3>옵션</h3>\n' +
+            '                    <li><a onclick="drawButtonRank(\'4K\')">4키</a></li>\n' +
+            '                    <li><a onclick="drawButtonRank(\'5K\')">5키</a></li>\n' +
+            '                    <li><a onclick="drawButtonRank(\'6K\')">6키</a></li>\n' +
+            '                    <li><a onclick="drawButtonRank(\'8K\')">8키</a></li>\n' +
+            '                </ul>\n' +
+            '                <h2 id="current-tier">현재 서열표 : ' + keyValue + '</h2>\n' +
+            '            </div>';
+    }
+
+    $.each(data, function (index, dataList) {
         if (2 < index && index < 8) {
             tier0List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
         if (8 <= index && index < 13) {
             tier0List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
         if (13 <= index && index < 18) {
             tier1List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
         if (18 <= index && index < 23) {
             tier1List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
         if (23 <= index && index < 28) {
             tier2List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
         if (28 <= index && index < 33) {
             tier2List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + data.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + data.re_sumnail + '"  /></a>\n' +
-                ' <p>' + data.re_name + '</p>\n' +
-                ' <p style="color: red;">(평가난이도 : ' + data.re_level + ')</p>\n' +
+                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
+                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
+                ' <p>' + dataList.re_name + '</p>\n' +
                 ' </div>\n';
         }
 
-        var itemHtml = ' <div class="rank-box ">\n' +
+        var itemHtml =  keyNav +
+            '<div class="rank-box ">\n' +
             '\n' +
             '                <div class="ranking">\n' +
             '                        <h3>1위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + dataJSON[0].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + dataJSON[0].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + dataJSON[0].re_name + '</p>\n' +
-            '                        <p style="color: red;">(평가난이도 : ' + dataJSON[0].re_level + ')</p>\n' +
+            '                        <a onclick="moveItemInfo(' + data[0].re_num +')" >\n' +
+            '                            <img class="main-item-sumnail" src="' + data[0].re_sumnail + '" /></a>\n' +
+            '                        <p> ' + data[0].re_name + '</p>\n' +
             '                    </div>\n'+
 
             '                    <div class="ranking">\n' +
             '                        <h3>2위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + dataJSON[1].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + dataJSON[1].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + dataJSON[1].re_name + '</p>\n' +
-            '                        <p style="color: red;">(평가난이도 : ' + dataJSON[1].re_level + ')</p>\n' +
+            '                        <a onclick="moveItemInfo(' + data[1].re_num +')" >\n' +
+            '                            <img class="main-item-sumnail" src="' + data[1].re_sumnail + '" /></a>\n' +
+            '                        <p> ' + data[1].re_name + '</p>\n' +
             '                    </div>\n'+
 
             '                    <div class="ranking">\n' +
             '                        <h3>3위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + dataJSON[2].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + dataJSON[2].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + dataJSON[2].re_name + '</p>\n' +
-            '                        <p style="color: red;">(평가난이도 : ' + dataJSON[2].re_level + ')</p>\n' +
+            '                        <a onclick="moveItemInfo(' + data[2].re_num +')" >\n' +
+            '                            <img class="main-item-sumnail" src="' + data[2].re_sumnail + '" /></a>\n' +
+            '                        <p> ' + data[2].re_name + '</p>\n' +
             '                    </div>\n' +
             '                 </div>\n' +
 

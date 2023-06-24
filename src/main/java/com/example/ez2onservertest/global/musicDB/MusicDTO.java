@@ -16,9 +16,17 @@ public class MusicDTO {
     private String re_info;
     private String re_video;
 
+    private float selectLevel;
     // JOIN
     private int ca_num;
     private String ca_name;
+
+    // JOIN
+
+    private float level_4K;
+    private float level_5K;
+    private float level_6K;
+    private float level_8K;
 
 
     public MusicDTO(){}

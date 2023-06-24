@@ -12,6 +12,11 @@ public interface MusicMapper {
     List<MusicDTO> selectDlcTypeMusics(int dlcNumber);
     List<MusicDTO> selectSearch(String keyword);
 
+    List<MusicDTO> select4BtnAllMusics();
+    List<MusicDTO> select5BtnAllMusics();
+    List<MusicDTO> select6BtnAllMusics();
+    List<MusicDTO> select8BtnAllMusics();
+
     MusicKeyLevelDTO selectLevels(int musicNumber);
 
 }
