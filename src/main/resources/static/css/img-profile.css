@@ -1,35 +1,67 @@
 .ranking {
     display: flex;
-    position: relative;
     flex-direction: column;
     align-items: center;
 }
 
+
 .img-hover-box {
-    position: absolute;
-    top: 30px;
-    width: 90px;
-    height: 90px;
-    background-color: red;
-    overflow: hidden;
+    position: relative;
+    height: 140px;
+    width: 140px;
+    margin-bottom: 1.5rem;
 }
 
-.img-hover-box:hover {
-    position: absolute;
-    width: 250px;
-    height: 90px;
-    background-color: red;
+.img-hover-box p {
+    width: 100%;
+    text-align: center;
 }
 
 .img-hover {
-    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
+.item-profile {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    border-radius: 5rem;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
 
-
-
+.item-profile p {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
 
 .main-item-sumnail {
-    width: 90px;
-    height: 90px;
+    width: 100%;
+}
+
+.img-hover-container {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    margin-bottom: 1rem;
+}
+
+.main-name {
+    font-weight: 600;
+}
+
+.ranking h3 {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+    border-radius: 3rem;
+    padding: 0.4rem;
+    color: white;
+    background-color: #ffabab;
 }

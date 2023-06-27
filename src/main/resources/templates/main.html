@@ -16,8 +16,28 @@
 
     <div class="header-nav container">
         <h1><a th:href="@{/}">EZ2LEVEL</a></h1>
-        <ul>
+
+        <th:block th:unless="${not #strings.isEmpty(session.userid)}">
+        <ul class="login">
+            <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=fcc1110f8bd54e8c77c6821b89f9095e&redirect_uri=http://localhost:8080/login/oauth/kakaologin"><p>로그인</p></a>
         </ul>
+        </th:block>
+
+        <th:block th:if="${not #strings.isEmpty(session.userid)}">
+            <div class="mypage">
+                <p>마이페이지</p>
+                <ul>
+                    <li>내정보</li>
+                    <li>성과표보기</li>
+                    <li>로그아웃</li>
+                </ul>
+            </div>
+<!--            <ul class="logout">-->
+<!--                <li><form th:action="@{/logout}" method="post">-->
+<!--                <a><p><button>로그아웃</button></p></a>-->
+<!--                </form></li>-->
+<!--            </ul>-->
+        </th:block>
 
     </div>
 </div>
@@ -61,7 +81,6 @@
                     <li><a>고민중</a></li>
                     <li><a>고민중</a></li>
                     <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
                 </ul>
             </div>
 
@@ -69,10 +88,7 @@
 
 
         <div class="content-item">
-
-
             <!--            JavaScript : main_TotalRank.js-->
-
 
 
         </div>

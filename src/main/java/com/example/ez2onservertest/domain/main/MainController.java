@@ -2,6 +2,8 @@ package com.example.ez2onservertest.domain.main;
 
 
 import com.example.ez2onservertest.global.musicDB.MusicDTO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

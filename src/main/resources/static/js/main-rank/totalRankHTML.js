@@ -43,77 +43,149 @@ function drawTotalHTML(data, keyValue) {
 
     $.each(data, function (index, dataList) {
         if (2 < index && index < 8) {
-            tier0List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier0List_up += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         if (8 <= index && index < 13) {
-            tier0List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier0List_down += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         if (13 <= index && index < 18) {
-            tier1List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier1List_up += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         if (18 <= index && index < 23) {
-            tier1List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier1List_down += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         if (23 <= index && index < 28) {
-            tier2List_up += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier2List_up += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         if (28 <= index && index < 33) {
-            tier2List_down += ' <div class="item-box ranking">\n' +
-                ' <a onclick="moveItemInfo(' + dataList.re_num + ')">\n' +
-                ' <img class="main-item-sumnail"  src="' + dataList.re_sumnail + '"  /></a>\n' +
-                ' <p>' + dataList.re_name + '</p>\n' +
-                ' </div>\n';
+            tier2List_down += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
         }
 
         var itemHtml =  keyNav +
             '<div class="rank-box ">\n' +
             '\n' +
-            '                <div class="ranking">\n' +
-            '                        <h3>1위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + data[0].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + data[0].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + data[0].re_name + '</p>\n' +
-            '                    </div>\n'+
+'                                <div class="ranking">\n' +
+            '                                    <h3>1위</h3>\n' +
+            '                                    <div class="img-hover-box">\n' +
+            '\n' +
+            '                                        <a class="img-hover"onclick="moveItemInfo(' + data[0].re_num + ')" >\n' +
+            '                                                <img class="main-item-sumnail" src="' + data[0].re_sumnail + '" />\n' +
+            '                                            <div class="item-profile">\n' +
+            '                                                <p>평가점수 ' + data[0].selectLevel + '</p>\n' +
+            '                                            </div>\n' +
+            '\n' +
+            '                                        </a>\n' +
+            '                                        <p>' + data[0].re_name + '</p>\n' +
+            '                                    </div>\n' +
+            '                                </div>' +
 
-            '                    <div class="ranking">\n' +
-            '                        <h3>2위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + data[1].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + data[1].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + data[1].re_name + '</p>\n' +
-            '                    </div>\n'+
+            '                                <div class="ranking">\n' +
+            '                                    <h3>2위</h3>\n' +
+            '                                    <div class="img-hover-box">\n' +
+            '\n' +
+            '                                        <a class="img-hover"onclick="moveItemInfo(' + data[1].re_num + ')" >\n' +
+            '                                                <img class="main-item-sumnail" src="' + data[1].re_sumnail + '" />\n' +
+            '                                            <div class="item-profile">\n' +
+            '                                                <p>평가점수 ' + data[1].selectLevel + '</p>\n' +
+            '                                            </div>\n' +
+            '\n' +
+            '                                        </a>\n' +
+            '                                        <p>' + data[1].re_name + '</p>\n' +
+            '                                    </div>\n' +
+            '                                </div>' +
 
-            '                    <div class="ranking">\n' +
-            '                        <h3>3위</h3>\n' +
-            '                        <a onclick="moveItemInfo(' + data[2].re_num +')" >\n' +
-            '                            <img class="main-item-sumnail" src="' + data[2].re_sumnail + '" /></a>\n' +
-            '                        <p> ' + data[2].re_name + '</p>\n' +
-            '                    </div>\n' +
-            '                 </div>\n' +
+            '                                <div class="ranking">\n' +
+            '                                    <h3>3위</h3>\n' +
+            '                                    <div class="img-hover-box">\n' +
+            '\n' +
+            '                                        <a class="img-hover"onclick="moveItemInfo(' + data[2].re_num + ')" >\n' +
+            '                                                <img class="main-item-sumnail" src="' + data[2].re_sumnail + '" />\n' +
+            '                                            <div class="item-profile">\n' +
+            '                                                <p>평가점수 ' + data[2].selectLevel + '</p>\n' +
+            '                                            </div>\n' +
+            '\n' +
+            '                                        </a>\n' +
+            '                                        <p>' + data[2].re_name + '</p>\n' +
+            '                                    </div>\n' +
+            '                                </div>' +
+            '                                </div>' +
 
             ' <div class="tier-item-box maring-auto">\n' +
             '                <div class="content-h3"><h3>0티어</h3></div>\n' +

@@ -1,12 +1,11 @@
 .dlc-rank-box {
-    width: 80%;
+    width: 100%;
     padding: 1rem;
 
 }
 
 .dlc-rank {
     display: flex;
-    padding: 1rem;
     align-items: center;
     width: 70%;
     border-bottom: 1px solid var(--theme-color-04);
@@ -21,7 +20,7 @@
 
 
 .dlc-rank-column {
-    width: 20%;
+    width: 10%;
 }
 
 .dlc-text ul li {
