@@ -16,8 +16,26 @@
 
   <div class="header-nav container">
     <h1><a th:href="@{/}">EZ2LEVEL</a></h1>
-    <ul>
-    </ul>
+
+    <th:block th:unless="${not #strings.isEmpty(session.userid)}">
+      <ul class="login">
+        <a th:href="@{/login}"><h2>로그인</h2></a>
+      </ul>
+    </th:block>
+
+    <th:block th:if="${not #strings.isEmpty(session.userid)}">
+      <div  class="mypage">
+        <h2 id="mypage">마이페이지</h2>
+        <ul id="mypage-drop" class="mypage-drop">
+          <li><p>옵션</p></li>
+          <li><p>옵션</p></li>
+          <li><form th:action="@{/logout}" method="post">
+            <button><p>로그아웃</p></button>
+          </form></li>
+        </ul>
+      </div>
+
+    </th:block>
 
   </div>
 </div>

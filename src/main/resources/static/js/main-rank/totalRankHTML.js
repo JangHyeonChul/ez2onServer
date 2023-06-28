@@ -26,6 +26,9 @@ function drawTotalHTML(data, keyValue) {
     var tier2List_up = '';
     var tier2List_down = '';
 
+    var tier3List_up = '';
+    var tier3List_down = '';
+
     var keyNav = '';
 
     if (keyValue != null) {
@@ -138,6 +141,38 @@ function drawTotalHTML(data, keyValue) {
                 '                            </div>'
         }
 
+        if (33 <= index && index < 38) {
+            tier3List_up += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
+        }
+
+        if (38 <= index && index < 43) {
+            tier3List_down += '<div class="img-hover-container">\n' +
+                '  <div class="img-hover-box">\n' +
+                '  <div class="item-box ranking">\n' +
+                '  <a class="img-hover" >\n' +
+                '   <img class="main-item-sumnail" src="' + dataList.re_sumnail + '"  /></a>\n' +
+                '                                <div onclick="moveItemInfo(' + dataList.re_num + ')" class="item-profile">\n' +
+                '                                    <p>평가점수 ' + dataList.selectLevel + '</p>\n' +
+                '                                </div>\n' +
+                '                                </a>\n' +
+                '                                </div>\n' +
+                '                                <p class="main-name">' + dataList.re_name + '</p>\n' +
+                '                                </div>\n' +
+                '                            </div>'
+        }
+
         var itemHtml =  keyNav +
             '<div class="rank-box ">\n' +
             '\n' +
@@ -212,7 +247,15 @@ function drawTotalHTML(data, keyValue) {
             '                </div>\n' +
             '                <div class="content-item-box">\n' +
             tier2List_down +
-            '                </div>'
+            '                </div>' +
+        '            <div class="maring-auto">\n' +
+        '                <div class="content-h3"><h3>3티어</h3></div>\n' +
+        '                <div class="content-item-box">\n' +
+        tier3List_up +
+        '                </div>\n' +
+        '                <div class="content-item-box">\n' +
+        tier3List_down +
+        '                </div>';
         contentItem.html(itemHtml);
 
     })
