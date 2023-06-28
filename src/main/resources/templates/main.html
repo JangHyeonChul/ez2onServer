@@ -19,24 +19,22 @@
 
         <th:block th:unless="${not #strings.isEmpty(session.userid)}">
         <ul class="login">
-            <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=fcc1110f8bd54e8c77c6821b89f9095e&redirect_uri=http://localhost:8080/login/oauth/kakaologin"><p>로그인</p></a>
+            <a th:href="@{/login}"><h2>로그인</h2></a>
         </ul>
         </th:block>
 
         <th:block th:if="${not #strings.isEmpty(session.userid)}">
-            <div class="mypage">
-                <p>마이페이지</p>
-                <ul>
-                    <li>내정보</li>
-                    <li>성과표보기</li>
-                    <li>로그아웃</li>
+            <div  class="mypage">
+                <h2 id="mypage">마이페이지</h2>
+                <ul id="mypage-drop" class="mypage-drop">
+                    <li><p>옵션</p></li>
+                    <li><p>옵션</p></li>
+                    <li><form th:action="@{/logout}" method="post">
+                    <button><p>로그아웃</p></button>
+                    </form></li>
                 </ul>
             </div>
-<!--            <ul class="logout">-->
-<!--                <li><form th:action="@{/logout}" method="post">-->
-<!--                <a><p><button>로그아웃</button></p></a>-->
-<!--                </form></li>-->
-<!--            </ul>-->
+
         </th:block>
 
     </div>
@@ -50,7 +48,7 @@
             <div class="search-box">
                 <div class="search">
                     <i class="fas fa-search"></i>
-                    <input id="main-search" type="text" />
+                    <input id="main-search" type="text"  placeholder="악곡이름을 검색하세요"/>
                 </div>
                 <div class="search-dropmenu">
 <!--                    Java Script : search.js-->
@@ -75,12 +73,8 @@
             <div class="option-rank">
                 <div class="option-h"><h3>옵션</h3></div>
                 <ul class="option-ul">
-                    <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
-                    <li><a>고민중</a></li>
+                    <li><a th:href="@{/result}">성과입력(준비중)</a></li>
+
                 </ul>
             </div>
 
@@ -107,5 +101,6 @@
 <script th:src="@{/js/main-rank/main_KeyRank.js}"></script>
 <script th:src="@{/js/main-rank/keyRankHTML.js}"></script>
 <script th:src="@{/js/search.js}"></script>
+<script th:src="@{/js/mypage.js}"></script>
 </body>
 </html>

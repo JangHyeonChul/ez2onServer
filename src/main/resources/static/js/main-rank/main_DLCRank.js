@@ -16,19 +16,9 @@ function DLCRankBtn(dlcNumber) {
     
 }
 
-function asdf() {
-    console.log("11");
-}
 
-$(document).ready(function() {
-    $('.item-profile').mouseenter(function() {
-        console.log("실행");
-        $(this).stop().animate({ opacity: 1 }, 300);
-    }).mouseleave(function() {
-        console.log("실행");
-        $(this).stop().animate({ opacity: 0 }, 300);
-    });
-});
+
+
 
 $(document).ready(function() {
     $(document).on("mouseenter", ".item-profile", function () {

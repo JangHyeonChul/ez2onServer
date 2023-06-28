@@ -1,0 +1,41 @@
+.result-text {
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--theme-color-03);
+    padding: 1rem;
+}
+
+.result-box {
+    width: 30%;
+}
+
+.result-select-music {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--theme-color-03);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.result-sumnail {
+    height: 90px;
+    width: 90px;
+    margin-right: 3rem;
+}
+
+.result-detail {
+    background-color: red;
+}
+
+.result-submit {
+    border: 1px solid var(--theme-color-03);
+    padding: 1rem;
+}
+
+.score {
+    width: 150px;
+    padding: 0.2rem 0;
+    margin-bottom: 1rem;
+}

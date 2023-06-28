@@ -1,0 +1,35 @@
+.mypage {
+    display: flex;
+    align-items: center;
+}
+
+.mypage h2 {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+
+.mypage-drop {
+    display: flex;
+    white-space: nowrap;
+    width: 0;
+    overflow: hidden;
+    padding: 1rem 0;
+
+}
+
+.mypage-drop li {
+    cursor: pointer;
+    padding: 0.2rem 0.8rem;
+}
+
+.login h2 {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}

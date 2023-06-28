@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.ez2onservertest.domain.result.ResultMapper">
+
+    <insert id="insertResult" parameterType="com.example.ez2onservertest.domain.result.ResultDTO">
+        INSERT INTO result(re_num, user_id, result_type, result_score)
+        VALUES (#{re_num}, #{user_id}, #{result_type}, #{result_score})
+    </insert>
+    
+    <select id="selectResult" parameterType="com.example.ez2onservertest.domain.result.ResultDTO" resultType="com.example.ez2onservertest.domain.result.ResultDTO">
+        SELECT *
+        FROM result
+        WHERE re_num = #{re_num} AND user_id = #{user_id} AND result_type = #{result_type}
+    </select>
+    
+    <update id="updateResult" parameterType="com.example.ez2onservertest.domain.result.ResultDTO">
+        UPDATE result
+        SET result_score = #{result_score}
+        WHERE re_num = #{re_num} AND user_id = #{user_id} AND result_type = #{result_type}
+    </update>
+
+
+    <select id="selectAllResult"  resultType="com.example.ez2onservertest.domain.result.ResultDTO">
+        SELECT *
+        FROM result
+        WHERE re_num = #{musicnumber} AND user_id = #{userid}
+    </select>
+
+</mapper>

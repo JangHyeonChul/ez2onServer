@@ -14,7 +14,8 @@
 @import url(info-key.css);
 @import url(rank-key.css);
 @import url(img-profile.css);
-
+@import url(mypage.css);
+@import url(result/result-text.css);
 
 
 html, body, div, h1, h2, h3, p {
@@ -47,6 +48,13 @@ body::-webkit-scrollbar-track {
     background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
 
+button{
+    all: unset;
+}
+
+white {
+    background-color: white;
+}
 
 
 body {

@@ -8,7 +8,7 @@ function drawDlcRank(data, dlcNumber) {
         dlcList += '  <div class="dlc-rank maring-auto">\n' +
             '                    <div class="dlc-rank-column"><h4>' + (index + 1) + '위</h4></div>\n' +
             '                    <div class="dlc-rank-column">' +
-            '<a onclick="moveItemInfo('+ dataList.re_num +')"><img class="main-item-sumnail " src="' + dataList.re_sumnail +'"/></div></a>\n' +
+            '<a onclick="moveItemInfo('+ dataList.re_num +')"><img class="dlc-sumnail " src="' + dataList.re_sumnail +'"/></div></a>\n' +
             '                    <div class="dlc-text">\n' +
             '                        <ul>\n' +
             '                            <li><h2>제목 : ' + dataList.re_name + '</h2></li>\n' +

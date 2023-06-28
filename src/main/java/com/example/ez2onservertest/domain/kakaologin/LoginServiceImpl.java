@@ -26,7 +26,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     private static final String TOKEN_URI = "https://kauth.kakao.com/oauth/token";
-    private static final String REDIRECT_URI = "https://localhost:8080/oauth";
+    private static final String REDIRECT_URI = "http://ez2level.kro.kr/oauth";
     private static final String GRANT_TYPE = "authorization_code";
     private static final String CLIENT_ID = "fcc1110f8bd54e8c77c6821b89f9095e";
 
@@ -37,8 +37,8 @@ public class LoginServiceImpl implements LoginService {
 
 
     private static final String RESPONSE_TYPE = "code";
-    private static final String AUTH_REDIRECT_URI = "http://localhost:8080/login/oauth/kakaologin";
-    private static final String TOKEN_REDIRECT_URI = "http://localhost:8080";
+    private static final String AUTH_REDIRECT_URI = "http://ez2level.kro.kr/login/oauth/kakaologin";
+    private static final String TOKEN_REDIRECT_URI = "http://ez2level.kro.kr/";
 
 
     @Override
@@ -65,7 +65,7 @@ public class LoginServiceImpl implements LoginService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "fcc1110f8bd54e8c77c6821b89f9095e");
-        params.add("redirect_uri", "http://localhost:8080/login/oauth/kakaologin");
+        params.add("redirect_uri", "http://ez2level.kro.kr/login/oauth/kakaologin");
         params.add("code", code);
 
 
