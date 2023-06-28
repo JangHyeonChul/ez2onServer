@@ -16,7 +16,6 @@ function drawTotalRank() {
 
 function drawTotalHTML(data, keyValue) {
     const contentItem = $('.content-item');
-    console.log(data);
     var tier0List_up = '';
     var tier0List_down = '';
 

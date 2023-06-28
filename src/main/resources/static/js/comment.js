@@ -87,15 +87,15 @@ function comment(musicNumber) {
         return errorMap;
     }
 
+}
 
-    function commentlevelMax(number) {
-        if (number > 101) {
-            $("#commentLevel").val(100);
-        }
+function commentlevelMax(number) {
+    if (number > 101) {
+        $("#commentLevel").val(100);
+    }
 
-        if (number < 0) {
-            $("#commentLevel").val(0);
-        }
+    if (number < 0) {
+        $("#commentLevel").val(0);
     }
 }
 

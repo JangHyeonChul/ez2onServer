@@ -8,7 +8,7 @@ function DLCRankBtn(dlcNumber) {
             drawDlcRank(data, dlcNumber)
         },
         error: function (request) {
-            console.log(request);
+
         }
 
 
