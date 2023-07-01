@@ -3,6 +3,7 @@ package com.example.ez2onservertest.domain.kakaologin;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -25,20 +26,17 @@ public class LoginServiceImpl implements LoginService {
         this.loginMapper = loginMapper;
     }
 
-    private static final String TOKEN_URI = "https://kauth.kakao.com/oauth/token";
-    private static final String REDIRECT_URI = "http://ez2level.kro.kr/oauth";
     private static final String GRANT_TYPE = "authorization_code";
-    private static final String CLIENT_ID = "fcc1110f8bd54e8c77c6821b89f9095e";
 
+    @Value("${kakao.clientid}")
+    private static String CLIENT_ID;
 
     private static final String URI_STRING = "https://kauth.kakao.com";
     private static final String AUTH_PATH = "/oauth/authorize?";
-    private static final String TOKEN_PATH = "/oauth/token?";
-
 
     private static final String RESPONSE_TYPE = "code";
     private static final String AUTH_REDIRECT_URI = "http://ez2level.kro.kr/login/oauth/kakaologin";
-    private static final String TOKEN_REDIRECT_URI = "http://ez2level.kro.kr/";
+
 
 
     @Override
@@ -63,9 +61,9 @@ public class LoginServiceImpl implements LoginService {
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type", "authorization_code");
-        params.add("client_id", "fcc1110f8bd54e8c77c6821b89f9095e");
-        params.add("redirect_uri", "http://ez2level.kro.kr/login/oauth/kakaologin");
+        params.add("grant_type", GRANT_TYPE);
+        params.add("client_id", CLIENT_ID);
+        params.add("redirect_uri", AUTH_REDIRECT_URI);
         params.add("code", code);
 
 
