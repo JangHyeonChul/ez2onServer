@@ -2,6 +2,7 @@ package com.example.ez2onservertest.domain.kakaologin;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
+@Slf4j
 public class LoginServiceImpl implements LoginService {
 
     LoginMapper loginMapper;
@@ -45,7 +47,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public String getKakaoToken(String code) {
+    public String getKakaoToken(String code, HttpServletRequest request) {
 
         String grantType = kakaoProperties.getGrant_type();
         String clientId = kakaoProperties.getClient_Id();
@@ -72,14 +74,30 @@ public class LoginServiceImpl implements LoginService {
                 LoginAccessTokenDTO.class
         );
 
+        boolean responseSuccess = response.getStatusCode().is2xxSuccessful();
+        String remoteUserId = request.getRemoteAddr();
+
+        if (responseSuccess) {
+
+
+            log.info("[요청 IP : {}] 로그인 시도 -> 액세스 토큰 Response 성공", remoteUserId);
+            log.debug("[요청 IP : {}] 액세스 토큰 정보 | 상태 코드 : {}", remoteUserId, response.getStatusCode());
+        }
+
+        if (!responseSuccess) {
+            log.info("[요청 IP : {}] 로그인 시도 -> 액세스 토큰 Response 실패", remoteUserId);
+            log.warn("[요청 IP : {}] 액세스 토큰 정보 | 상태 코드 : {}", remoteUserId, response.getStatusCode());
+        }
+
         LoginAccessTokenDTO result = response.getBody();
+        log.debug("[요청 IP : {}] 액세스 토큰 정보 {}", remoteUserId, result);
         return result.getAccess_token();
 
 
     }
 
     @Override
-    public UserInfoDTO getUserInfo(String token) {
+    public UserInfoDTO getUserInfo(String token, HttpServletRequest request) {
         HttpHeaders headers  = new HttpHeaders();
         headers.add("Authorization", "Bearer " + token);
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -95,6 +113,19 @@ public class LoginServiceImpl implements LoginService {
                 UserInfoDTO.class
         );
 
+        boolean responseSuccess = response.getStatusCode().is2xxSuccessful();
+        String remoteUserIP = request.getRemoteAddr();
+
+        if (responseSuccess) {
+            log.info("[요청 IP : {}] 로그인 시도 -> 액세스 토큰 Response 성공 -> 유저프로필 Reponse 성공 ", remoteUserIP);
+        }
+
+        if (!responseSuccess) {
+            log.info("[요청 IP : {}] 로그인 시도 -> 액세스 토큰 Response 성공 -> 유저프로필 Reponse 실패 ", remoteUserIP);
+        }
+
+        log.debug("[요청 IP : {}] 유저 프로필 정보 {}", remoteUserIP, response.getBody());
+
 
         return response.getBody();
     }
@@ -105,21 +136,31 @@ public class LoginServiceImpl implements LoginService {
     public void login(UserInfoDTO userInfoDTO, HttpServletRequest request) {
         String user_id = userInfoDTO.getId();
         String userInfo = loginMapper.selectUserId(user_id);
+        String remoteUserIP = request.getRemoteAddr();
 
         if (userInfo == null) {
             loginMapper.insertLoginUser(user_id);
+            log.info("[요청 IP : {}] 로그인 성공 후 최초 접속 유저데이터 저장 ", remoteUserIP);
         }
+
 
         HttpSession session = request.getSession();
         session.setAttribute("userid", userInfoDTO);
         session.setMaxInactiveInterval(1800);
 
+
+        UserInfoDTO userid = (UserInfoDTO) session.getAttribute("userid");
+        log.info("[요청 IP : {}] 로그인 성공 -> 세션에 유저정보 등록 성공", remoteUserIP);
+        log.debug("[요청 IP : {}] 세션 유저 정보 {}", remoteUserIP, userid);
     }
 
     @Override
     public void logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
+        String remoteUserIP = request.getRemoteAddr();
         session.invalidate();
+
+        log.info("[요청 IP : {}] 세션 종료 처리", remoteUserIP);
 
     }
 }

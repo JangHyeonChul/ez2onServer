@@ -27,9 +27,15 @@ public class LoginController {
 
 
     @GetMapping("/login")
-    public String login() {
+    public String login(HttpServletRequest request) {
 
         String kaKaoLoginRequest = loginService.getKaKaoLoginRequestURI();
+        String remoteAddr = request.getRemoteAddr();
+
+
+        log.info("[요청 IP : {}] 로그인 시도", remoteAddr);
+        log.debug("[요청 IP : {}] [카카오 로그인 요청 URI : {}] 로그인 시도 ", remoteAddr, kaKaoLoginRequest);
+
 
         return "redirect:"+kaKaoLoginRequest;
 
@@ -38,16 +44,23 @@ public class LoginController {
     @GetMapping("/login/oauth/kakaologin")
     public String kakaologin(@RequestParam("code") String accessCode, HttpServletRequest request) {
 
-        String token = loginService.getKakaoToken(accessCode);
-        UserInfoDTO userInfo = loginService.getUserInfo(token);
+        String token = loginService.getKakaoToken(accessCode, request);
+        UserInfoDTO userInfo = loginService.getUserInfo(token, request);
+        String remoteAddr = request.getRemoteAddr();
         loginService.login(userInfo, request);
+
+        log.info("[요청 IP : {}] 로그인 완료", remoteAddr);
 
         return "redirect:/";
     }
 
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {
+        String remoteAddr = request.getRemoteAddr();
         loginService.logout(request);
+
+        log.info("[요청 IP : {}] 로그아웃 성공", remoteAddr);
+
         return "redirect:/";
     }
 }

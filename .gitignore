@@ -4,10 +4,17 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+# Properties
 src/main/resources/application-prod.properties
 src/main/resources/application-develop.properties
 src/main/resources/application-local.properties
+
+# Test
 src/test/java/com/example/ez2onservertest/**
+
+
+
 
 ### STS ###
 .apt_generated
