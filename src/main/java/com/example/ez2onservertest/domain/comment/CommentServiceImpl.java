@@ -1,5 +1,7 @@
 package com.example.ez2onservertest.domain.comment;
 
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
@@ -7,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class CommentServiceImpl implements CommentService{
 
     CommentMapper commentMapper;
@@ -16,8 +19,14 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public int writeComment(Map<String, String> commentMap) {
-        return commentMapper.insertComment(commentMap);
+    public int writeComment(Map<String, String> commentMap, HttpServletRequest request) {
+        int result = commentMapper.insertComment(commentMap);
+
+        if (result > 0) {
+            log.info("[요청 IP : {}] 코멘트 등록 성공", request.getRemoteAddr());
+        }
+
+        return result;
     }
 
     @Override
@@ -46,36 +55,45 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void updateLevels(Map<String, String> commentMap) {
+    public void updateLevels(Map<String, String> commentMap, HttpServletRequest request) {
         int musicNumber = Integer.parseInt(commentMap.get("musicnumber"));
         String keyValue = commentMap.get("btn");
 
-        double score = getScoreTally(musicNumber);
+        log.info("[요청 IP : {}] {}번 악곡의 종합점수 업데이트 수행", request.getRemoteAddr(), musicNumber);
+        double score = getScoreTally(musicNumber, request);
         commentMapper.updateCommentLevel(musicNumber, score);
 
-        double scoreKey = getScoreKeyTally(musicNumber, keyValue);
+        log.info("[요청 IP : {}] {}번 악곡의 {} 종합점수 업데이트 수행", request.getRemoteAddr(), musicNumber, keyValue);
+        double scoreKey = getScoreKeyTally(musicNumber, keyValue, request);
         commentMapper.updateCommentKeyLevel(musicNumber, scoreKey, keyValue);
     }
 
     @Override
-    public double getScoreTally(int musicNumber) {
+    public double getScoreTally(int musicNumber, HttpServletRequest request) {
         int totalScore = getCommentLevels(musicNumber);
         int scoreCount = getCountComments(musicNumber);
 
         double doubleResult = (double) totalScore/scoreCount;
 
         DecimalFormat form = new DecimalFormat("#.##");
-        return Double.parseDouble(form.format(doubleResult));
+        double result = Double.parseDouble(form.format(doubleResult));
+
+        log.info("[요청 IP : {}] {}번 악곡의 종합점수 {}으로 업데이트", request.getRemoteAddr(), musicNumber, result);
+        return result;
     }
 
-    private double getScoreKeyTally(int musicNumber, String keyValue) {
+    private double getScoreKeyTally(int musicNumber, String keyValue, HttpServletRequest request) {
         int keyLevels = commentMapper.selectCommentsKeyLevel(musicNumber, keyValue);
         int countKeylevels = commentMapper.countKeyComments(musicNumber, keyValue);
 
         double doubleResult = (double) keyLevels/countKeylevels;
 
         DecimalFormat form = new DecimalFormat("#.##");
-        return Double.parseDouble(form.format(doubleResult));
+        double result = Double.parseDouble(form.format(doubleResult));
+
+        log.info("[요청 IP : {}] {}번 악곡의 {} 종합점수 {}으로 업데이트", request.getRemoteAddr(), musicNumber, keyValue, result);
+
+        return result;
 
 
     }

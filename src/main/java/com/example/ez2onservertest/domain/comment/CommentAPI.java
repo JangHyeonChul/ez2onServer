@@ -1,5 +1,6 @@
 package com.example.ez2onservertest.domain.comment;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,13 +27,19 @@ public class CommentAPI {
 
     @PostMapping("/comment")
     @Transactional
-    public List<CommentDTO> writeComment(@RequestBody Map<String, String> commentMap) {
-        Map<String, String> errorMap = commentValid.commentValid(commentMap);
+    public List<CommentDTO> writeComment(@RequestBody Map<String, String> commentMap, HttpServletRequest request) {
+        log.info("[요청 IP : {}] 코멘트 등록 요청", request.getRemoteAddr());
+
+        Map<String, String> errorMap = commentValid.commentValid(commentMap, request);
         int musicNumber = Integer.parseInt(commentMap.get("musicnumber"));
 
         if (errorMap.size() == 0) {
-            commentService.writeComment(commentMap);
-            commentService.updateLevels(commentMap);
+            log.info("[요청 IP : {}] 코멘트 등록 유효성 검사 통과", request.getRemoteAddr());
+
+            commentService.writeComment(commentMap, request);
+
+            log.info("[요청 IP : {}] {}번 악곡의 종합점수 업데이트 수행요청", request.getRemoteAddr(), musicNumber);
+            commentService.updateLevels(commentMap, request);
         }
 
         return commentService.getComments(musicNumber, 0);
