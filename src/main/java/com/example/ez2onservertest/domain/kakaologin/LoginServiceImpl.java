@@ -2,52 +2,42 @@ package com.example.ez2onservertest.domain.kakaologin;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.BodyInserter;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 
-import java.util.Map;
 
 
 @Service
 public class LoginServiceImpl implements LoginService {
 
     LoginMapper loginMapper;
+    LoginKakaoProperties kakaoProperties;
 
-    public LoginServiceImpl(LoginMapper loginMapper) {
+    public LoginServiceImpl(LoginMapper loginMapper, LoginKakaoProperties loginKakaoProperties) {
         this.loginMapper = loginMapper;
+        this.kakaoProperties = loginKakaoProperties;
     }
-
-    private static final String GRANT_TYPE = "authorization_code";
-
-    @Value("${kakao.clientid}")
-    private static String CLIENT_ID;
-
-    private static final String URI_STRING = "https://kauth.kakao.com";
-    private static final String AUTH_PATH = "/oauth/authorize?";
-
-    private static final String RESPONSE_TYPE = "code";
-    private static final String AUTH_REDIRECT_URI = "http://ez2level.kro.kr/login/oauth/kakaologin";
 
 
 
     @Override
     public String getKaKaoLoginRequestURI() {
 
+        String uriString = kakaoProperties.getUri();
+        String authPath = kakaoProperties.getAuth_path();
+        String responseType = kakaoProperties.getResponse_type();
+        String clientId = kakaoProperties.getClient_Id();
+        String authRedirectUri = kakaoProperties.getAuth_redirect_uri();
+
         StringBuffer uri = new StringBuffer();
-        uri.append(URI_STRING)
-                .append(AUTH_PATH)
-                .append("response_type=" + RESPONSE_TYPE)
-                .append("&client_id=" + CLIENT_ID)
-                .append("&redirect_uri=" + AUTH_REDIRECT_URI);
+        uri.append(uriString)
+                .append(authPath)
+                .append("response_type=" + responseType)
+                .append("&client_id=" + clientId)
+                .append("&redirect_uri=" + authRedirectUri);
 
         return uri.toString();
 
@@ -56,14 +46,19 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public String getKakaoToken(String code) {
+
+        String grantType = kakaoProperties.getGrant_type();
+        String clientId = kakaoProperties.getClient_Id();
+        String authRedirectUri = kakaoProperties.getAuth_redirect_uri();
+
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers  = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type", GRANT_TYPE);
-        params.add("client_id", CLIENT_ID);
-        params.add("redirect_uri", AUTH_REDIRECT_URI);
+        params.add("grant_type", grantType);
+        params.add("client_id", clientId);
+        params.add("redirect_uri", authRedirectUri);
         params.add("code", code);
 
 

@@ -5,7 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 src/main/resources/application-prod.properties
-src/test/java/com/example/ez2onservertest/*
+src/main/resources/application-develop.properties
+src/main/resources/application-local.properties
+src/test/java/com/example/ez2onservertest/**
 
 ### STS ###
 .apt_generated

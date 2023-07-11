@@ -8,6 +8,12 @@ group = 'com.example'
 version = '0.2v'
 sourceCompatibility = '17'
 
+bootJar {
+    archivesBaseName = 'ez2on'
+    archiveFileName = 'ez2onServer.jar'
+    archiveVersion = "0.2"
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -27,6 +33,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 

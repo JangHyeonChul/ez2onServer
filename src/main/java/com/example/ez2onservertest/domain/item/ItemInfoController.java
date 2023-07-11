@@ -7,6 +7,7 @@ import com.example.ez2onservertest.domain.comment.CommentService;
 import com.example.ez2onservertest.domain.main.MusicService;
 import com.example.ez2onservertest.global.musicDB.MusicDTO;
 import com.example.ez2onservertest.global.musicDB.MusicKeyLevelDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class ItemInfoController {
 
     MusicService musicService;

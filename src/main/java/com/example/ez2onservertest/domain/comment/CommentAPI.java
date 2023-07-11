@@ -1,5 +1,6 @@
 package com.example.ez2onservertest.domain.comment;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@Slf4j
 @RestController
 public class CommentAPI {
 
