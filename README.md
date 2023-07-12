@@ -159,6 +159,68 @@ global에는 서비스에 전체적으로 쓰일수있는 기능을 위주로 �
 
 <br/>
 
+**주요로직 Logging 및 개발환경 분리**
+
+
+![2](https://github.com/JangHyeonChul/ez2onServer/assets/74286316/03392f0a-d73a-4dfd-9172-5339f967ea71)
+![3](https://github.com/JangHyeonChul/ez2onServer/assets/74286316/e0caa4d7-4baa-4c69-a84b-6f78e7ee423f)
+![1](https://github.com/JangHyeonChul/ez2onServer/assets/74286316/0ae29d2d-2faa-4c0f-834d-2d105db0af1f)
+
+
+환경분리
+apllication-develop : 운영환경
+apllication-prod : 민감정보 (DB, ClinetID)
+apllication-local : 로컬개발환경
+
+설정파일 환경을 분리하는 과정에서 properties의 설정정보들을 @Value로 하나씩 가져오기에는 불필요
+
+@ConfigurationProperties를 이용하여 해당 정보들을 객체로 관리
+
+적용 설정파일에 따라 로컬 및 운영환경에서의 기능들 (로그인 api)을 다르게 받아올수 있습니다
+
+
+주요로직 Logging
+
+로그를 통해 사용자의 시작지점과 종료시점까지 로그를 남겨 오류발생시 어디에서 오류났는지 확인가능
+
+중간에 오류발생시 해당시점 분기후 debug, warn 레벨로 출력
+
+develop 운영환경에서의 로그레벨은 info레벨 까지만
+
+local의 운영환경에서는 Debug레벨까지 출력되도록 설정
+
+로그정보 Info - 운영환경에서 소셜로그인 요청, 응답등의 실패, 성공여부 로깅처리
+
+로그정보 Debug - 상세내용 출력
+
+코멘트 부분 로깅처리
+
+코멘트 등록요청, 유효성검사 통과, 업데이트 수행요청, 업데이트 수행완료
+
+
+<br/>
+<br/>
+<br/>
+
+---
+
+직접 해당 게임 커뮤니티사이트에 배포하고 나의 서비스를 이용, 
+
+추가사항이나 개선사항을 Notion에 정리하여 하나씩 개선해나가는 방향으로 서비스의 품질을 높히고있으며,
+
+비록 마이너한 주제다 보니깐 사용자가 그렇게 많지는 않지만 내가 만들었을때는 보지못했던 버그나, 더 좋은 방향을 사용자가 직접 말해주고 수용
+
+
+
+
+
+<br/>
+
+---
+
+<br/>
+
+
 
 # *Link*<br/>
 
