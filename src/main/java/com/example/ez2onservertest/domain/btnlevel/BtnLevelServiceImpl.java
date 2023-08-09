@@ -15,7 +15,11 @@ public class BtnLevelServiceImpl implements BtnLevelService {
     public BtnLevelServiceImpl(BtnLevelMapper btnLevelMapper) {
         this.btnLevelMapper = btnLevelMapper;
     }
-    
+
+
+    /*
+    * DB에 저장되어있는 난이도 (ex : 4/5/6/8)를 /로 split하여 List형태로 담아서 반환
+    * */
 
     @Override
     public List<List<String>> getBtnLevel(int musicNumber) {
