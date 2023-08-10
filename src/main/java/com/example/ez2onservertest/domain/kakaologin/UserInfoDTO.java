@@ -4,6 +4,14 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * File Name : UserInfoDTO
+ * Description : 소셜 로그인에 성공한 유저의 Profile을 담는 DTO
+ * Update : 2023-08-10
+ * Author : JHC
+ */
+
+
 @Data
 public class UserInfoDTO {
 

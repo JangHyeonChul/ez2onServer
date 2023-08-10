@@ -9,7 +9,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-
+/**
+ * File Name : LoginServiceImpl
+ * Description : 로그인 수행 로직을 수행하는 Interface의 구현체
+ * Update : 2023-08-10
+ * Author : JHC
+ */
 
 @Service
 @Slf4j
@@ -23,7 +28,10 @@ public class LoginServiceImpl implements LoginService {
         this.kakaoProperties = loginKakaoProperties;
     }
 
-
+    /*
+    * application.properties에 있는 소셜 로그인을 하기위한 URI 생성하는 Method
+    * ex) https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=&redirect_uri=
+    * */
 
     @Override
     public String getKaKaoLoginRequestURI() {
@@ -45,6 +53,10 @@ public class LoginServiceImpl implements LoginService {
 
 
     }
+
+    /*
+    * 소셜 로그인 시도 Method
+    * */
 
     @Override
     public String getKakaoToken(String code, HttpServletRequest request) {
@@ -96,6 +108,10 @@ public class LoginServiceImpl implements LoginService {
 
     }
 
+    /*
+    * 소셜 로그인 ID 및 PW가 일치할경우 해당 유저의 Profile을 받아오는 Method
+    * */
+
     @Override
     public UserInfoDTO getUserInfo(String token, HttpServletRequest request) {
         HttpHeaders headers  = new HttpHeaders();
@@ -131,6 +147,9 @@ public class LoginServiceImpl implements LoginService {
     }
 
 
+    /*
+    * 로그인 로직 수행 최초 로그인시 유저데이터 DB에 저장 및 세션 로그인 기능 수행 Method
+    * */
 
     @Override
     public void login(UserInfoDTO userInfoDTO, HttpServletRequest request) {
@@ -153,6 +172,10 @@ public class LoginServiceImpl implements LoginService {
         log.info("[요청 IP : {}] 로그인 성공 -> 세션에 유저정보 등록 성공", remoteUserIP);
         log.debug("[요청 IP : {}] 세션 유저 정보 {}", remoteUserIP, userid);
     }
+
+    /*
+    * 세션 로그아웃 처리 Method
+    * */
 
     @Override
     public void logout(HttpServletRequest request) {

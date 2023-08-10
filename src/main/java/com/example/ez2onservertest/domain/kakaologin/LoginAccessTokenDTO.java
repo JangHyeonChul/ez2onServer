@@ -2,6 +2,13 @@ package com.example.ez2onservertest.domain.kakaologin;
 
 import lombok.Data;
 
+/**
+ * File Name : LoginAccessTokenDTO
+ * Description : 소셜 로그인 수행을 위한 데이터 DTO
+ * Update : 2023-08-10
+ * Author : JHC
+ */
+
 @Data
 public class LoginAccessTokenDTO {
 
